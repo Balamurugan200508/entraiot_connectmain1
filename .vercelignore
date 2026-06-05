@@ -9,5 +9,6 @@ node_modules/
 /*.js
 !/server.js
 !/build.js
-!package.json
+package.json
+package-lock.json
 !dist-vercel/
