@@ -6,6 +6,8 @@
   "installCommand": "echo 'No install needed'",
   "outputDirectory": "dist-vercel",
   "rewrites": [
+    { "source": "/eiffel.glb", "destination": "/buildings/eiffel.glb" },
+    { "source": "/pond scene.glb", "destination": "/buildings/pond scene.glb" },
     { "source": "/assets/(.*)", "destination": "/portfolio/assets/$1" },
     { "source": "/gltf/(.*)", "destination": "/portfolio/gltf/$1" },
     { "source": "/image/(.*)", "destination": "/portfolio/image/$1" },
