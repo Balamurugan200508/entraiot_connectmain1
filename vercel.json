@@ -7,6 +7,7 @@
   "outputDirectory": "dist-vercel",
   "rewrites": [
     { "source": "/eiffel.glb", "destination": "/buildings/eiffel.glb" },
+    { "source": "/pond%20scene.glb", "destination": "/buildings/pond scene.glb" },
     { "source": "/pond scene.glb", "destination": "/buildings/pond scene.glb" },
     { "source": "/assets/(.*)", "destination": "/portfolio/assets/$1" },
     { "source": "/gltf/(.*)", "destination": "/portfolio/gltf/$1" },
