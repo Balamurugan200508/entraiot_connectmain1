@@ -3,6 +3,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/assets/(.*)", "destination": "/portfolio/assets/$1" },
+    { "source": "/gltf/(.*)", "destination": "/portfolio/gltf/$1" },
+    { "source": "/image/(.*)", "destination": "/portfolio/image/$1" },
+    { "source": "/sounds/(.*)", "destination": "/portfolio/sounds/$1" },
+    { "source": "/texture/(.*)", "destination": "/portfolio/texture/$1" },
+    { "source": "/vendors/(.*)", "destination": "/portfolio/vendors/$1" },
+    { "source": "/hdri/(.*)", "destination": "/portfolio/hdri/$1" },
     { "source": "/portfolio/(.*)", "destination": "/portfolio/$1" },
     { "source": "/portfolio", "destination": "/portfolio/index.html" },
     { "source": "/way/(.*)", "destination": "/way/$1" },
