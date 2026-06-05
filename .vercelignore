@@ -6,8 +6,8 @@ animation-assets/
 node_modules/
 .git/
 *.har
-*.js
-!server.js
-!build.js
+/*.js
+!/server.js
+!/build.js
 !package.json
 !dist-vercel/
