@@ -2,6 +2,9 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": null,
+  "installCommand": "echo 'No install needed'",
+  "outputDirectory": "dist-vercel",
   "rewrites": [
     { "source": "/assets/(.*)", "destination": "/portfolio/assets/$1" },
     { "source": "/gltf/(.*)", "destination": "/portfolio/gltf/$1" },
