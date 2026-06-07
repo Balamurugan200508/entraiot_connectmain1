@@ -38,7 +38,7 @@ import{a as z,bf as Ke,A as Ce,a9 as Ge,bg as Ye,bh as ve,B as se,V as U,y as Xe
 const cardConfigs = [
   { abbr: "C S", image: "/portfolio/image/drifting-car-1.mp4", metrics: [{ val: "98.5%", label: "Efficiency" }, { val: "A+", label: "Synergy" }, { val: "42", label: "Active Projs" }] },
   { abbr: "G O", image: "/portfolio/image/drifting-car-2.mp4", metrics: [{ val: "4.8x", label: "Avg ROAS" }, { val: "18", label: "Campaigns" }, { val: "8.4M", label: "Monthly Imp" }] },
-  { abbr: "E R", image: "/portfolio/image/drifting-car-3.mp4", metrics: [{ val: "99.99%", label: "Uptime" }, { val: "94 Pts", label: "Velocity" }, { val: "AAA", label: "Security" }] },
+  { abbr: "E R", image: "/portfolio/image/drifting-car.mp4", metrics: [{ val: "99.99%", label: "Uptime" }, { val: "94 Pts", label: "Velocity" }, { val: "AAA", label: "Security" }] },
   { abbr: "O F", image: "/portfolio/image/drifting-car-4.mp4", metrics: [{ val: "34.2%", label: "Margin" }, { val: "100%", label: "Audit Pass" }, { val: "$4.2M", label: "Asset Val" }] },
   { abbr: "S S", image: "/portfolio/image/drifting-car-5.mp4", metrics: [{ val: "4.92/5", label: "CSAT" }, { val: "<15m", label: "SLA Response" }, { val: "97.8%", label: "Retention" }] }
 ];
