@@ -259,19 +259,32 @@ export default function ScrollCanvas() {
                 e.preventDefault();
                 setMgmtModalOpen(true);
               }}
-              className="max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] relative overflow-hidden transition-transform duration-500 hover:scale-105 pointer-events-auto cursor-pointer block no-underline"
+              className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-blue-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(59,130,246,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:border-blue-500/60 hover:shadow-[0_0_50px_0px_rgba(59,130,246,0.5)] pointer-events-auto cursor-pointer block no-underline group"
             >
-              <div className="absolute -inset-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-3xl opacity-50" />
+              <div className="absolute top-0 left-0 w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent" />
+              <div className="absolute top-0 left-0 w-[2px] h-8 bg-gradient-to-b from-blue-500 to-transparent" />
+              <div className="absolute bottom-0 right-0 w-8 h-[2px] bg-gradient-to-l from-purple-500 to-transparent" />
+              <div className="absolute bottom-0 right-0 w-[2px] h-8 bg-gradient-to-t from-purple-500 to-transparent" />
+              <div className="absolute -inset-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="text-4xl mb-4 drop-shadow-md">🏢</div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Management Field</h3>
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] p-3 bg-blue-500/10 rounded-2xl border border-blue-500/20">🏢</div>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">DEPT. 01</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-blue-200 transition-colors duration-300">Management Field</h3>
+                <div className="w-12 h-[2px] bg-blue-500 mb-4" />
+                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
                   Strategizing for the future, optimizing processes, and leading the way towards comprehensive digital transformation.
                 </p>
-                <div className="mt-6 flex items-center text-blue-400 text-sm font-medium">
-                  <span>Access Portal</span>
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Leadership</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Strategy</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Operations</span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-blue-400 text-sm font-semibold group-hover:text-blue-300 transition-colors duration-300">
+                  <span className="tracking-wider">ACCESS PORTAL</span>
+                  <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
               </div>
@@ -280,14 +293,27 @@ export default function ScrollCanvas() {
 
           {/* Sign 2: Marketing (Right) */}
           <div ref={sign2Ref} className="absolute inset-0 flex items-center justify-end w-full px-8 md:px-24 opacity-0 pointer-events-none">
-            <div className="max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] relative overflow-hidden text-right flex flex-col items-end transition-transform duration-500 hover:scale-105 pointer-events-auto">
-              <div className="absolute -inset-20 bg-gradient-to-bl from-orange-500/20 to-pink-500/20 blur-3xl opacity-50" />
-              <div className="relative z-10 w-full">
-                <div className="text-4xl mb-4 drop-shadow-md">📢</div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Marketing Field</h3>
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light">
+            <div className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-orange-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(249,115,22,0.3)] relative overflow-hidden text-right flex flex-col items-end transition-all duration-500 hover:scale-[1.03] hover:border-orange-500/60 hover:shadow-[0_0_50px_0px_rgba(249,115,22,0.5)] pointer-events-auto group">
+              <div className="absolute top-0 right-0 w-8 h-[2px] bg-gradient-to-l from-orange-500 to-transparent" />
+              <div className="absolute top-0 right-0 w-[2px] h-8 bg-gradient-to-b from-orange-500 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-8 h-[2px] bg-gradient-to-r from-pink-500 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-[2px] h-8 bg-gradient-to-t from-pink-500 to-transparent" />
+              <div className="absolute -inset-20 bg-gradient-to-bl from-orange-500/10 to-pink-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10 w-full flex flex-col items-end">
+                <div className="flex items-center justify-between w-full mb-4">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">DEPT. 02</span>
+                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(249,115,22,0.5)] p-3 bg-orange-500/10 rounded-2xl border border-orange-500/20">📢</div>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-orange-200 transition-colors duration-300">Marketing Field</h3>
+                <div className="w-12 h-[2px] bg-orange-500 mb-4" />
+                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
                   Crafting compelling narratives, engaging audiences, and driving growth through data-backed market intelligence.
                 </p>
+                <div className="flex flex-wrap gap-2 justify-end mb-6">
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Branding</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Campaigns</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Analytics</span>
+                </div>
               </div>
             </div>
           </div>
@@ -300,19 +326,32 @@ export default function ScrollCanvas() {
                 e.preventDefault();
                 setTechModalOpen(true);
               }}
-              className="max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] relative overflow-hidden transition-transform duration-500 hover:scale-105 pointer-events-auto cursor-pointer block no-underline"
+              className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-emerald-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:border-emerald-500/60 hover:shadow-[0_0_50px_0px_rgba(16,185,129,0.5)] pointer-events-auto cursor-pointer block no-underline group"
             >
-              <div className="absolute -inset-20 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 blur-3xl opacity-50" />
+              <div className="absolute top-0 left-0 w-8 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent" />
+              <div className="absolute top-0 left-0 w-[2px] h-8 bg-gradient-to-b from-emerald-500 to-transparent" />
+              <div className="absolute bottom-0 right-0 w-8 h-[2px] bg-gradient-to-l from-teal-500 to-transparent" />
+              <div className="absolute bottom-0 right-0 w-[2px] h-8 bg-gradient-to-t from-teal-500 to-transparent" />
+              <div className="absolute -inset-20 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="text-4xl mb-4 drop-shadow-md">💻</div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Technical Field</h3>
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] p-3 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">💻</div>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">DEPT. 03</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-emerald-200 transition-colors duration-300">Technical Field</h3>
+                <div className="w-12 h-[2px] bg-emerald-500 mb-4" />
+                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
                   Building robust architectures, engineering innovative solutions, and pushing the boundaries of modern technology.
                 </p>
-                <div className="mt-6 flex items-center text-emerald-400 text-sm font-medium">
-                  <span>Access Portal</span>
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">R&D</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Software Eng</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Infrastructure</span>
+                </div>
+                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-emerald-400 text-sm font-semibold group-hover:text-emerald-300 transition-colors duration-300">
+                  <span className="tracking-wider">ACCESS PORTAL</span>
+                  <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
               </div>
@@ -321,14 +360,27 @@ export default function ScrollCanvas() {
 
           {/* Sign 4: Financial (Right) */}
           <div ref={sign4Ref} className="absolute inset-0 flex items-center justify-end w-full px-8 md:px-24 opacity-0 pointer-events-none">
-            <div className="max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] relative overflow-hidden text-right flex flex-col items-end transition-transform duration-500 hover:scale-105 pointer-events-auto">
-              <div className="absolute -inset-20 bg-gradient-to-bl from-amber-500/20 to-red-500/20 blur-3xl opacity-50" />
-              <div className="relative z-10 w-full">
-                <div className="text-4xl mb-4 drop-shadow-md">💰</div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Financial Field</h3>
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light">
+            <div className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-amber-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(245,158,11,0.3)] relative overflow-hidden text-right flex flex-col items-end transition-all duration-500 hover:scale-[1.03] hover:border-amber-500/60 hover:shadow-[0_0_50px_0px_rgba(245,158,11,0.5)] pointer-events-auto group">
+              <div className="absolute top-0 right-0 w-8 h-[2px] bg-gradient-to-l from-amber-500 to-transparent" />
+              <div className="absolute top-0 right-0 w-[2px] h-8 bg-gradient-to-b from-amber-500 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-8 h-[2px] bg-gradient-to-r from-red-500 to-transparent" />
+              <div className="absolute bottom-0 left-0 w-[2px] h-8 bg-gradient-to-t from-red-500 to-transparent" />
+              <div className="absolute -inset-20 bg-gradient-to-bl from-amber-500/10 to-red-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10 w-full flex flex-col items-end">
+                <div className="flex items-center justify-between w-full mb-4">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">DEPT. 04</span>
+                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20">💰</div>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-amber-200 transition-colors duration-300">Financial Field</h3>
+                <div className="w-12 h-[2px] bg-amber-500 mb-4" />
+                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
                   Ensuring sustainable growth, managing resources efficiently, and securing long-term economic stability.
                 </p>
+                <div className="flex flex-wrap gap-2 justify-end mb-6">
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Budgeting</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Investments</span>
+                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Risk Mgmt</span>
+                </div>
               </div>
             </div>
           </div>
