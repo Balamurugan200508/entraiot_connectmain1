@@ -252,162 +252,362 @@ export default function ScrollCanvas() {
           </div>
 
           {/* Sign 1: Management (Left) */}
-          <div ref={sign1Ref} className="absolute inset-0 flex items-center justify-start w-full px-8 md:px-24 opacity-0 pointer-events-none">
+          <div ref={sign1Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
             <a 
               href="#management-login"
               onClick={(e) => {
                 e.preventDefault();
                 setMgmtModalOpen(true);
               }}
-              className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-blue-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(59,130,246,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:border-blue-500/60 hover:shadow-[0_0_50px_0px_rgba(59,130,246,0.5)] pointer-events-auto cursor-pointer block no-underline group"
+              className="max-w-4xl w-full bg-[#0c0f1d]/75 backdrop-blur-3xl border border-blue-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(59,130,246,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-[0_0_80px_-10px_rgba(59,130,246,0.5)] pointer-events-auto cursor-pointer block no-underline group"
             >
-              <div className="absolute top-0 left-0 w-8 h-[2px] bg-gradient-to-r from-blue-500 to-transparent" />
-              <div className="absolute top-0 left-0 w-[2px] h-8 bg-gradient-to-b from-blue-500 to-transparent" />
-              <div className="absolute bottom-0 right-0 w-8 h-[2px] bg-gradient-to-l from-purple-500 to-transparent" />
-              <div className="absolute bottom-0 right-0 w-[2px] h-8 bg-gradient-to-t from-purple-500 to-transparent" />
-              <div className="absolute -inset-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] p-3 bg-blue-500/10 rounded-2xl border border-blue-500/20">🏢</div>
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">DEPT. 01</span>
+              {/* Glow accents */}
+              <div className="absolute top-0 right-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
+              <div className="absolute -inset-20 bg-gradient-to-br from-blue-500/10 to-purple-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Left content column */}
+                <div className="md:col-span-7 flex flex-col text-left">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 bg-blue-500/10 rounded-2xl border border-blue-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(59,130,246,0.2)]">🏢</div>
+                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-blue-400 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20 uppercase">
+                      ✦ Strategic Excellence
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
+                    Management <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">Field</span>
+                  </h3>
+                  
+                  <div className="w-16 h-[3px] bg-blue-500 rounded mb-5" />
+                  
+                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
+                    Strategizing for the future, optimizing processes, and leading the way towards comprehensive digital transformation.
+                  </p>
+                  
+                  <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_30px_rgba(59,130,246,0.5)] transition-all duration-300">
+                    <span>Access Portal</span>
+                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
                 
-                {/* Visual Header Image */}
-                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
-                  <img src="/way/image/management.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Management" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                </div>
+                {/* Right image/illustration column */}
+                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
+                  {/* Radar Circles behind illustration */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
+                    <div className="absolute w-72 h-72 border border-blue-500/10 rounded-full animate-[ping_3s_infinite]" />
+                    <div className="absolute w-56 h-56 border border-blue-500/15 rounded-full" />
+                    <div className="absolute w-36 h-36 border border-blue-500/20 rounded-full" />
+                  </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-blue-200 transition-colors duration-300">Management Field</h3>
-                <div className="w-12 h-[2px] bg-blue-500 mb-4" />
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
-                  Strategizing for the future, optimizing processes, and leading the way towards comprehensive digital transformation.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Leadership</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Strategy</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Operations</span>
+                  <img src="/way/image/management.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Management Graphic" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
+
+                  {/* Upward overlay arrow curve */}
+                  <div className="absolute top-8 right-8 text-orange-500/30 text-8xl font-thin select-none pointer-events-none z-10">↗</div>
+
+                  {/* Mini Overlay Box */}
+                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-sm">👥</span>
+                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Unified Leadership</span>
+                    </div>
+                    <p className="text-[10px] text-white/50 leading-normal font-light">
+                      Empowering teams and building a culture of excellence.
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-blue-400 text-sm font-semibold group-hover:text-blue-300 transition-colors duration-300">
-                  <span className="tracking-wider">ACCESS PORTAL</span>
-                  <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                  </svg>
+              </div>
+
+              {/* Bottom Feature Row */}
+              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">🎯</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Strategic Planning</h4>
+                    <p className="text-white/40 text-[10px] font-light">Future-ready strategies</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">📈</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Process Optimization</h4>
+                    <p className="text-white/40 text-[10px] font-light">Smarter, efficient workflows</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">⚡</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Digital Transformation</h4>
+                    <p className="text-white/40 text-[10px] font-light">Driving meaningful change</p>
+                  </div>
                 </div>
               </div>
             </a>
           </div>
 
           {/* Sign 2: Marketing (Right) */}
-          <div ref={sign2Ref} className="absolute inset-0 flex items-center justify-end w-full px-8 md:px-24 opacity-0 pointer-events-none">
-            <div className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-orange-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(249,115,22,0.3)] relative overflow-hidden text-right flex flex-col items-end transition-all duration-500 hover:scale-[1.03] hover:border-orange-500/60 hover:shadow-[0_0_50px_0px_rgba(249,115,22,0.5)] pointer-events-auto group">
-              <div className="absolute top-0 right-0 w-8 h-[2px] bg-gradient-to-l from-orange-500 to-transparent" />
-              <div className="absolute top-0 right-0 w-[2px] h-8 bg-gradient-to-b from-orange-500 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-8 h-[2px] bg-gradient-to-r from-pink-500 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-[2px] h-8 bg-gradient-to-t from-pink-500 to-transparent" />
-              <div className="absolute -inset-20 bg-gradient-to-bl from-orange-500/10 to-pink-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10 w-full flex flex-col items-end">
-                <div className="flex items-center justify-between w-full mb-4">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">DEPT. 02</span>
-                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(249,115,22,0.5)] p-3 bg-orange-500/10 rounded-2xl border border-orange-500/20">📢</div>
+          <div ref={sign2Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
+            <div className="max-w-4xl w-full bg-[#1b0d0c]/75 backdrop-blur-3xl border border-orange-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(249,115,22,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-orange-500/50 hover:shadow-[0_0_80px_-10px_rgba(249,115,22,0.5)] pointer-events-auto block group">
+              {/* Glow accents */}
+              <div className="absolute top-0 left-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50" />
+              <div className="absolute -inset-20 bg-gradient-to-bl from-orange-500/10 to-pink-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Left contents */}
+                <div className="md:col-span-7 flex flex-col text-left">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 bg-orange-500/10 rounded-2xl border border-orange-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(249,115,22,0.2)]">📢</div>
+                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-orange-400 bg-orange-500/10 px-4 py-2 rounded-full border border-orange-500/20 uppercase">
+                      ✦ Global Outreach
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
+                    Marketing <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">Field</span>
+                  </h3>
+                  
+                  <div className="w-16 h-[3px] bg-orange-500 rounded mb-5" />
+                  
+                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
+                    Crafting compelling narratives, engaging audiences, and driving growth through data-backed market intelligence.
+                  </p>
+                  
+                  <div className="bg-gradient-to-r from-orange-600 to-pink-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_4px_30px_rgba(249,115,22,0.5)] transition-all duration-300">
+                    <span>Explore Insights</span>
+                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
                 
-                {/* Visual Header Image */}
-                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
-                  <img src="/way/image/marketing.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Marketing" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                </div>
+                {/* Right Illustration */}
+                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
+                    <div className="absolute w-72 h-72 border border-orange-500/10 rounded-full animate-[ping_3s_infinite]" />
+                    <div className="absolute w-56 h-56 border border-orange-500/15 rounded-full" />
+                    <div className="absolute w-36 h-36 border border-orange-500/20 rounded-full" />
+                  </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-orange-200 transition-colors duration-300">Marketing Field</h3>
-                <div className="w-12 h-[2px] bg-orange-500 mb-4" />
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
-                  Crafting compelling narratives, engaging audiences, and driving growth through data-backed market intelligence.
-                </p>
-                <div className="flex flex-wrap gap-2 justify-end mb-6">
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Branding</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Campaigns</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Analytics</span>
+                  <img src="/way/image/marketing.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Marketing Graphic" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
+
+                  {/* Mini Overlay Box */}
+                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-sm">📣</span>
+                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Brand Resonance</span>
+                    </div>
+                    <p className="text-[10px] text-white/50 leading-normal font-light">
+                      Connecting audiences and scaling impact globally.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Feature Row */}
+              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">📊</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Market Intelligence</h4>
+                    <p className="text-white/40 text-[10px] font-light">Data-backed insights</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">📣</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Campaign Strategy</h4>
+                    <p className="text-white/40 text-[10px] font-light">Engaging stories & reach</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">🚀</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Growth Optimization</h4>
+                    <p className="text-white/40 text-[10px] font-light">Maximizing ROAS & conversion</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Sign 3: Technical (Left) */}
-          <div ref={sign3Ref} className="absolute inset-0 flex items-center justify-start w-full px-8 md:px-24 opacity-0 pointer-events-none">
+          <div ref={sign3Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
             <a 
               href="#technical-login"
               onClick={(e) => {
                 e.preventDefault();
                 setTechModalOpen(true);
               }}
-              className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-emerald-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.03] hover:border-emerald-500/60 hover:shadow-[0_0_50px_0px_rgba(16,185,129,0.5)] pointer-events-auto cursor-pointer block no-underline group"
+              className="max-w-4xl w-full bg-[#0b1c16]/75 backdrop-blur-3xl border border-emerald-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(16,185,129,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-emerald-500/50 hover:shadow-[0_0_80px_-10px_rgba(16,185,129,0.5)] pointer-events-auto cursor-pointer block no-underline group"
             >
-              <div className="absolute top-0 left-0 w-8 h-[2px] bg-gradient-to-r from-emerald-500 to-transparent" />
-              <div className="absolute top-0 left-0 w-[2px] h-8 bg-gradient-to-b from-emerald-500 to-transparent" />
-              <div className="absolute bottom-0 right-0 w-8 h-[2px] bg-gradient-to-l from-teal-500 to-transparent" />
-              <div className="absolute bottom-0 right-0 w-[2px] h-8 bg-gradient-to-t from-teal-500 to-transparent" />
-              <div className="absolute -inset-20 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] p-3 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">💻</div>
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">DEPT. 03</span>
+              {/* Glow accents */}
+              <div className="absolute top-0 right-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50" />
+              <div className="absolute -inset-20 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Left Content */}
+                <div className="md:col-span-7 flex flex-col text-left">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl border border-emerald-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(16,185,129,0.2)]">💻</div>
+                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 uppercase">
+                      ✦ Architectural Excellence
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
+                    Technical <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">Field</span>
+                  </h3>
+                  
+                  <div className="w-16 h-[3px] bg-emerald-500 rounded mb-5" />
+                  
+                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
+                    Building robust architectures, engineering innovative solutions, and pushing the boundaries of modern technology.
+                  </p>
+                  
+                  <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_4px_30px_rgba(16,185,129,0.5)] transition-all duration-300">
+                    <span>Access Portal</span>
+                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
                 
-                {/* Visual Header Image */}
-                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
-                  <img src="/way/image/technical.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Technical" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                </div>
+                {/* Right Illustration */}
+                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
+                    <div className="absolute w-72 h-72 border border-emerald-500/10 rounded-full animate-[ping_3s_infinite]" />
+                    <div className="absolute w-56 h-56 border border-emerald-500/15 rounded-full" />
+                    <div className="absolute w-36 h-36 border border-emerald-500/20 rounded-full" />
+                  </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-emerald-200 transition-colors duration-300">Technical Field</h3>
-                <div className="w-12 h-[2px] bg-emerald-500 mb-4" />
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
-                  Building robust architectures, engineering innovative solutions, and pushing the boundaries of modern technology.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">R&D</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Software Eng</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Infrastructure</span>
+                  <img src="/way/image/technical.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Technical Graphic" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
+
+                  {/* Mini Overlay Box */}
+                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-sm">🔧</span>
+                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Engineering Power</span>
+                    </div>
+                    <p className="text-[10px] text-white/50 leading-normal font-light">
+                      Designing high-performance backend systems & infrastructure.
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-emerald-400 text-sm font-semibold group-hover:text-emerald-300 transition-colors duration-300">
-                  <span className="tracking-wider">ACCESS PORTAL</span>
-                  <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                  </svg>
+              </div>
+
+              {/* Bottom Feature Row */}
+              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">🛠️</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Software Engineering</h4>
+                    <p className="text-white/40 text-[10px] font-light">Robust, scalable architectures</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">💡</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">R&D Innovation</h4>
+                    <p className="text-white/40 text-[10px] font-light">Pioneering next-gen solutions</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">🛡️</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Infrastructure Scaling</h4>
+                    <p className="text-white/40 text-[10px] font-light">High availability & security</p>
+                  </div>
                 </div>
               </div>
             </a>
           </div>
 
           {/* Sign 4: Financial (Right) */}
-          <div ref={sign4Ref} className="absolute inset-0 flex items-center justify-end w-full px-8 md:px-24 opacity-0 pointer-events-none">
-            <div className="max-w-md w-full bg-slate-950/45 backdrop-blur-2xl border border-amber-500/35 rounded-3xl p-8 shadow-[0_0_50px_-12px_rgba(245,158,11,0.3)] relative overflow-hidden text-right flex flex-col items-end transition-all duration-500 hover:scale-[1.03] hover:border-amber-500/60 hover:shadow-[0_0_50px_0px_rgba(245,158,11,0.5)] pointer-events-auto group">
-              <div className="absolute top-0 right-0 w-8 h-[2px] bg-gradient-to-l from-amber-500 to-transparent" />
-              <div className="absolute top-0 right-0 w-[2px] h-8 bg-gradient-to-b from-amber-500 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-8 h-[2px] bg-gradient-to-r from-red-500 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-[2px] h-8 bg-gradient-to-t from-red-500 to-transparent" />
-              <div className="absolute -inset-20 bg-gradient-to-bl from-amber-500/10 to-red-500/10 blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10 w-full flex flex-col items-end">
-                <div className="flex items-center justify-between w-full mb-4">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">DEPT. 04</span>
-                  <div className="text-4xl drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20">💰</div>
+          <div ref={sign4Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
+            <div className="max-w-4xl w-full bg-[#1b1509]/75 backdrop-blur-3xl border border-amber-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(245,158,11,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-amber-500/50 hover:shadow-[0_0_80px_-10px_rgba(245,158,11,0.5)] pointer-events-auto block group">
+              {/* Glow accents */}
+              <div className="absolute top-0 left-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50" />
+              <div className="absolute -inset-20 bg-gradient-to-bl from-amber-500/10 to-red-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Left Content */}
+                <div className="md:col-span-7 flex flex-col text-left">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-14 h-14 bg-amber-500/10 rounded-2xl border border-amber-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(245,158,11,0.2)]">💰</div>
+                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/20 uppercase">
+                      ✦ Fiscal Stability
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
+                    Financial <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Field</span>
+                  </h3>
+                  
+                  <div className="w-16 h-[3px] bg-amber-500 rounded mb-5" />
+                  
+                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
+                    Ensuring sustainable growth, managing resources efficiently, and securing long-term economic stability.
+                  </p>
+                  
+                  <div className="bg-gradient-to-r from-amber-600 to-orange-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(245,158,11,0.3)] hover:shadow-[0_4px_30px_rgba(245,158,11,0.5)] transition-all duration-300">
+                    <span>View Statements</span>
+                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
                 
-                {/* Visual Header Image */}
-                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
-                  <img src="/way/image/financial.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Financial" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                </div>
+                {/* Right Illustration */}
+                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
+                    <div className="absolute w-72 h-72 border border-amber-500/10 rounded-full animate-[ping_3s_infinite]" />
+                    <div className="absolute w-56 h-56 border border-amber-500/15 rounded-full" />
+                    <div className="absolute w-36 h-36 border border-amber-500/20 rounded-full" />
+                  </div>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-amber-200 transition-colors duration-300">Financial Field</h3>
-                <div className="w-12 h-[2px] bg-amber-500 mb-4" />
-                <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
-                  Ensuring sustainable growth, managing resources efficiently, and securing long-term economic stability.
-                </p>
-                <div className="flex flex-wrap gap-2 justify-end mb-6">
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Budgeting</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Investments</span>
-                  <span className="text-xs bg-white/5 border border-white/10 text-white/80 px-3 py-1 rounded-md">Risk Mgmt</span>
+                  <img src="/way/image/financial.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Financial Graphic" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
+
+                  {/* Mini Overlay Box */}
+                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-sm">📊</span>
+                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Asset Management</span>
+                    </div>
+                    <p className="text-[10px] text-white/50 leading-normal font-light">
+                      Ensuring long-term growth and capital efficiency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Feature Row */}
+              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">💼</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Resource Allocation</h4>
+                    <p className="text-white/40 text-[10px] font-light">Smart capital management</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">🛡️</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Risk Management</h4>
+                    <p className="text-white/40 text-[10px] font-light">Protecting assets & value</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">🪙</div>
+                  <div>
+                    <h4 className="text-white text-xs font-semibold">Financial Growth</h4>
+                    <p className="text-white/40 text-[10px] font-light">Sustainable economic scalability</p>
+                  </div>
                 </div>
               </div>
             </div>
