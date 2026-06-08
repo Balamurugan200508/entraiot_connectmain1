@@ -271,6 +271,13 @@ export default function ScrollCanvas() {
                   <div className="text-4xl drop-shadow-[0_0_8px_rgba(59,130,246,0.5)] p-3 bg-blue-500/10 rounded-2xl border border-blue-500/20">🏢</div>
                   <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">DEPT. 01</span>
                 </div>
+                
+                {/* Visual Header Image */}
+                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
+                  <img src="/way/image/management.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Management" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                </div>
+
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-blue-200 transition-colors duration-300">Management Field</h3>
                 <div className="w-12 h-[2px] bg-blue-500 mb-4" />
                 <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
@@ -304,6 +311,13 @@ export default function ScrollCanvas() {
                   <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">DEPT. 02</span>
                   <div className="text-4xl drop-shadow-[0_0_8px_rgba(249,115,22,0.5)] p-3 bg-orange-500/10 rounded-2xl border border-orange-500/20">📢</div>
                 </div>
+                
+                {/* Visual Header Image */}
+                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
+                  <img src="/way/image/marketing.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Marketing" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                </div>
+
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-orange-200 transition-colors duration-300">Marketing Field</h3>
                 <div className="w-12 h-[2px] bg-orange-500 mb-4" />
                 <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
@@ -338,6 +352,13 @@ export default function ScrollCanvas() {
                   <div className="text-4xl drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] p-3 bg-emerald-500/10 rounded-2xl border border-emerald-500/20">💻</div>
                   <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">DEPT. 03</span>
                 </div>
+                
+                {/* Visual Header Image */}
+                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
+                  <img src="/way/image/technical.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Technical" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                </div>
+
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-emerald-200 transition-colors duration-300">Technical Field</h3>
                 <div className="w-12 h-[2px] bg-emerald-500 mb-4" />
                 <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
@@ -371,6 +392,13 @@ export default function ScrollCanvas() {
                   <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">DEPT. 04</span>
                   <div className="text-4xl drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20">💰</div>
                 </div>
+                
+                {/* Visual Header Image */}
+                <div className="w-full h-36 mb-4 rounded-2xl overflow-hidden relative border border-white/10">
+                  <img src="/way/image/financial.webp" className="w-full h-full object-cover filter brightness-75 group-hover:brightness-95 group-hover:scale-105 transition-all duration-500" alt="Financial" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                </div>
+
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-amber-200 transition-colors duration-300">Financial Field</h3>
                 <div className="w-12 h-[2px] bg-amber-500 mb-4" />
                 <p className="text-white/70 text-sm md:text-base leading-relaxed font-light mb-6">
