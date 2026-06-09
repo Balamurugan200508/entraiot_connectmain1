@@ -63,19 +63,22 @@ export default function ScrollCanvas() {
 
   const loadImages = useCallback(async () => {
     let loaded = 0;
-    const loadPromises = Array.from({ length: FRAME_COUNT }).map((_, i) => {
+    const STEP = 2;
+    const totalToLoad = Math.ceil(FRAME_COUNT / STEP);
+    const loadPromises = Array.from({ length: totalToLoad }).map((_, idx) => {
+      const i = idx * STEP;
       return new Promise<HTMLImageElement>((resolve) => {
         const img = new Image();
         img.onload = () => {
           loaded++;
-          setLoadProgress(Math.floor((loaded / FRAME_COUNT) * 100));
+          setLoadProgress(Math.floor((loaded / totalToLoad) * 100));
           imagesRef.current[i] = img;
           resolve(img);
         };
         img.onerror = () => {
           console.error(`Failed to load frame ${i}`);
           loaded++;
-          setLoadProgress(Math.floor((loaded / FRAME_COUNT) * 100));
+          setLoadProgress(Math.floor((loaded / totalToLoad) * 100));
           resolve(img); // Resolve anyway so it doesn't hang
         };
         img.src = `/way/sequence/ezgif-frame-${String(i + 2).padStart(3, '0')}.png`;
@@ -89,7 +92,9 @@ export default function ScrollCanvas() {
   const drawFrame = useCallback((index: number) => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
-    const img = imagesRef.current[index];
+    const STEP = 2;
+    const targetIndex = Math.floor(index / STEP) * STEP;
+    const img = imagesRef.current[targetIndex];
 
     if (!canvas || !ctx || !img) return;
 
@@ -250,98 +255,79 @@ export default function ScrollCanvas() {
               onOpenTech={() => setTechModalOpen(true)} 
             />
           </div>
-
           {/* Sign 1: Management (Left) */}
-          <div ref={sign1Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
+          <div ref={sign1Ref} className="absolute inset-0 flex items-center justify-start w-full px-4 md:px-24 opacity-0 pointer-events-none">
             <a 
               href="#management-login"
               onClick={(e) => {
                 e.preventDefault();
                 setMgmtModalOpen(true);
               }}
-              className="max-w-4xl w-full bg-[#0c0f1d]/75 backdrop-blur-3xl border border-blue-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(59,130,246,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-[0_0_80px_-10px_rgba(59,130,246,0.5)] pointer-events-auto cursor-pointer block no-underline group"
+              className="max-w-[340px] w-full bg-[#080914]/90 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 shadow-[0_8px_32px_0_rgba(59,130,246,0.2)] pointer-events-auto cursor-pointer block no-underline transition-all duration-300 hover:scale-[1.02] text-left"
             >
-              {/* Glow accents */}
-              <div className="absolute top-0 right-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
-              <div className="absolute -inset-20 bg-gradient-to-br from-blue-500/10 to-purple-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg flex items-center justify-center text-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">🏢</div>
+                <span className="text-[7px] tracking-[0.2em] font-extrabold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-500/20 uppercase">
+                  ✦ Strategic Excellence
+                </span>
+              </div>
               
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {/* Left content column */}
-                <div className="md:col-span-7 flex flex-col text-left">
-                  <div className="flex items-center gap-4 mb-5">
-                    <div className="w-14 h-14 bg-blue-500/10 rounded-2xl border border-blue-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(59,130,246,0.2)]">🏢</div>
-                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-blue-400 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20 uppercase">
-                      ✦ Strategic Excellence
-                    </span>
+              <h3 className="text-xl font-extrabold text-white mb-1 tracking-tight leading-none">
+                Management <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-pink-500 bg-clip-text text-transparent">Field</span>
+              </h3>
+              <div className="w-6 h-[2px] bg-blue-500 rounded mb-3" />
+              
+              <p className="text-white/70 text-[10px] md:text-xs leading-relaxed font-light mb-4">
+                Strategizing for the future, optimizing processes, and leading the way towards comprehensive digital transformation.
+              </p>
+
+              {/* Centered 3D isometric Illustration */}
+              <div className="relative flex flex-col items-center justify-center w-full min-h-[140px] mb-4 select-none">
+                <div className="absolute w-36 h-36 rounded-full bg-blue-500/10 blur-2xl pointer-events-none" />
+                <img 
+                  src="/way/image/management.webp" 
+                  alt="Management illustration"
+                  className="w-full h-auto object-contain max-h-[140px] drop-shadow-[0_8px_20px_rgba(59,130,246,0.25)]" 
+                />
+                {/* Floating Translucent Glass Badge */}
+                <div className="absolute bottom-0 right-0 bg-[#0c0e20]/90 backdrop-blur-md border border-white/10 rounded-lg p-1.5 text-left shadow-xl max-w-[120px] z-20">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-[8px]">👥</span>
+                    <span className="text-[7px] font-bold text-white uppercase tracking-wider">Unified Leadership</span>
                   </div>
-                  
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
-                    Management <span className="bg-gradient-to-r from-orange-400 to-pink-500 bg-clip-text text-transparent">Field</span>
-                  </h3>
-                  
-                  <div className="w-16 h-[3px] bg-blue-500 rounded mb-5" />
-                  
-                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
-                    Strategizing for the future, optimizing processes, and leading the way towards comprehensive digital transformation.
+                  <p className="text-[7px] text-white/50 leading-normal font-light">
+                    Empowering teams and building excellence.
                   </p>
-                  
-                  <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_30px_rgba(59,130,246,0.5)] transition-all duration-300">
-                    <span>Access Portal</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Right image/illustration column */}
-                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
-                  {/* Radar Circles behind illustration */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
-                    <div className="absolute w-72 h-72 border border-blue-500/10 rounded-full animate-[ping_3s_infinite]" />
-                    <div className="absolute w-56 h-56 border border-blue-500/15 rounded-full" />
-                    <div className="absolute w-36 h-36 border border-blue-500/20 rounded-full" />
-                  </div>
-
-                  <img src="/way/image/management.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Management Graphic" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
-
-                  {/* Upward overlay arrow curve */}
-                  <div className="absolute top-8 right-8 text-orange-500/30 text-8xl font-thin select-none pointer-events-none z-10">↗</div>
-
-                  {/* Mini Overlay Box */}
-                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-sm">👥</span>
-                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Unified Leadership</span>
-                    </div>
-                    <p className="text-[10px] text-white/50 leading-normal font-light">
-                      Empowering teams and building a culture of excellence.
-                    </p>
-                  </div>
                 </div>
               </div>
 
-              {/* Bottom Feature Row */}
-              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">🎯</div>
+              {/* Portal access button */}
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 px-4 py-2 rounded-lg text-white text-[9px] font-semibold flex items-center gap-1.5 w-fit shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-all duration-300 mb-4">
+                <span>Access Portal</span>
+                <span className="text-[9px]">→</span>
+              </div>
+
+              {/* Bottom features list vertically stacked */}
+              <div className="border-t border-white/10 pt-3 flex flex-col gap-2 text-left relative z-10">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-purple-500/10 border border-purple-500/20 shadow-[0_0_10px_rgba(168,85,247,0.1)] flex items-center justify-center text-purple-400 text-[8px]">🎯</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Strategic Planning</h4>
-                    <p className="text-white/40 text-[10px] font-light">Future-ready strategies</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Strategic Planning</h4>
+                    <p className="text-white/40 text-[6px] font-light">Future-ready strategies</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">📈</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-blue-500/10 border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)] flex items-center justify-center text-blue-400 text-[8px]">📈</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Process Optimization</h4>
-                    <p className="text-white/40 text-[10px] font-light">Smarter, efficient workflows</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Process Optimization</h4>
+                    <p className="text-white/40 text-[6px] font-light">Smarter workflows</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm">⚡</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.1)] flex items-center justify-center text-orange-400 text-[8px]">🚀</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Digital Transformation</h4>
-                    <p className="text-white/40 text-[10px] font-light">Driving meaningful change</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Digital Transformation</h4>
+                    <p className="text-white/40 text-[6px] font-light">Driving meaningful change</p>
                   </div>
                 </div>
               </div>
@@ -349,85 +335,73 @@ export default function ScrollCanvas() {
           </div>
 
           {/* Sign 2: Marketing (Right) */}
-          <div ref={sign2Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
-            <div className="max-w-4xl w-full bg-[#1b0d0c]/75 backdrop-blur-3xl border border-orange-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(249,115,22,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-orange-500/50 hover:shadow-[0_0_80px_-10px_rgba(249,115,22,0.5)] pointer-events-auto block group">
-              {/* Glow accents */}
-              <div className="absolute top-0 left-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50" />
-              <div className="absolute -inset-20 bg-gradient-to-bl from-orange-500/10 to-pink-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div ref={sign2Ref} className="absolute inset-0 flex items-center justify-end w-full px-4 md:px-24 opacity-0 pointer-events-none">
+            <div 
+              className="max-w-[340px] w-full bg-[#080914]/90 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 shadow-[0_8px_32px_0_rgba(249,115,22,0.2)] pointer-events-auto block no-underline transition-all duration-300 hover:scale-[1.02] text-left"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg flex items-center justify-center text-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">📢</div>
+                <span className="text-[7px] tracking-[0.2em] font-extrabold text-orange-400 bg-orange-500/10 px-2.5 py-1 rounded-full border border-orange-500/20 uppercase">
+                  ✦ Global Outreach
+                </span>
+              </div>
               
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {/* Left contents */}
-                <div className="md:col-span-7 flex flex-col text-left">
-                  <div className="flex items-center gap-4 mb-5">
-                    <div className="w-14 h-14 bg-orange-500/10 rounded-2xl border border-orange-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(249,115,22,0.2)]">📢</div>
-                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-orange-400 bg-orange-500/10 px-4 py-2 rounded-full border border-orange-500/20 uppercase">
-                      ✦ Global Outreach
-                    </span>
+              <h3 className="text-xl font-extrabold text-white mb-1 tracking-tight leading-none">
+                Marketing <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-orange-500 bg-clip-text text-transparent">Field</span>
+              </h3>
+              <div className="w-6 h-[2px] bg-orange-500 rounded mb-3" />
+              
+              <p className="text-white/70 text-[10px] md:text-xs leading-relaxed font-light mb-4">
+                Crafting compelling narratives, engaging audiences, and driving growth through data-backed market intelligence.
+              </p>
+
+              {/* Centered 3D isometric Illustration */}
+              <div className="relative flex flex-col items-center justify-center w-full min-h-[140px] mb-4 select-none">
+                <div className="absolute w-36 h-36 rounded-full bg-orange-500/10 blur-2xl pointer-events-none" />
+                <img 
+                  src="/way/image/marketing.webp" 
+                  alt="Marketing illustration"
+                  className="w-full h-auto object-contain max-h-[140px] drop-shadow-[0_8px_20px_rgba(249,115,22,0.25)]" 
+                />
+                {/* Floating Translucent Glass Badge */}
+                <div className="absolute bottom-0 right-0 bg-[#0c0e20]/90 backdrop-blur-md border border-white/10 rounded-lg p-1.5 text-left shadow-xl max-w-[120px] z-20">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-[8px]">📢</span>
+                    <span className="text-[7px] font-bold text-white uppercase tracking-wider">Brand Resonance</span>
                   </div>
-                  
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
-                    Marketing <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">Field</span>
-                  </h3>
-                  
-                  <div className="w-16 h-[3px] bg-orange-500 rounded mb-5" />
-                  
-                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
-                    Crafting compelling narratives, engaging audiences, and driving growth through data-backed market intelligence.
+                  <p className="text-[7px] text-white/50 leading-normal font-light">
+                    Connecting audiences and scaling impact globally.
                   </p>
-                  
-                  <div className="bg-gradient-to-r from-orange-600 to-pink-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(249,115,22,0.3)] hover:shadow-[0_4px_30px_rgba(249,115,22,0.5)] transition-all duration-300">
-                    <span>Explore Insights</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Right Illustration */}
-                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
-                    <div className="absolute w-72 h-72 border border-orange-500/10 rounded-full animate-[ping_3s_infinite]" />
-                    <div className="absolute w-56 h-56 border border-orange-500/15 rounded-full" />
-                    <div className="absolute w-36 h-36 border border-orange-500/20 rounded-full" />
-                  </div>
-
-                  <img src="/way/image/marketing.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Marketing Graphic" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
-
-                  {/* Mini Overlay Box */}
-                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-sm">📣</span>
-                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Brand Resonance</span>
-                    </div>
-                    <p className="text-[10px] text-white/50 leading-normal font-light">
-                      Connecting audiences and scaling impact globally.
-                    </p>
-                  </div>
                 </div>
               </div>
 
-              {/* Bottom Feature Row */}
-              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">📊</div>
+              {/* Insights button */}
+              <div className="bg-gradient-to-r from-orange-600 to-pink-600 hover:from-orange-500 hover:to-pink-500 px-4 py-2 rounded-lg text-white text-[9px] font-semibold flex items-center gap-1.5 w-fit shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300 mb-4">
+                <span>Explore Insights</span>
+                <span className="text-[9px]">→</span>
+              </div>
+
+              {/* Bottom features list vertically stacked */}
+              <div className="border-t border-white/10 pt-3 flex flex-col gap-2 text-left relative z-10">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.15)] flex items-center justify-center text-orange-400 text-[8px]">📊</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Market Intelligence</h4>
-                    <p className="text-white/40 text-[10px] font-light">Data-backed insights</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Market Intelligence</h4>
+                    <p className="text-white/40 text-[6px] font-light">Data-backed insights</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">📣</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.15)] flex items-center justify-center text-orange-400 text-[8px]">📢</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Campaign Strategy</h4>
-                    <p className="text-white/40 text-[10px] font-light">Engaging stories & reach</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Campaign Strategy</h4>
+                    <p className="text-white/40 text-[6px] font-light">Engaging stories & reach</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-sm">🚀</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/20 shadow-[0_0_10px_rgba(249,115,22,0.15)] flex items-center justify-center text-orange-400 text-[8px]">🚀</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Growth Optimization</h4>
-                    <p className="text-white/40 text-[10px] font-light">Maximizing ROAS & conversion</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Growth Optimization</h4>
+                    <p className="text-white/40 text-[6px] font-light">Maximizing conversions</p>
                   </div>
                 </div>
               </div>
@@ -435,92 +409,78 @@ export default function ScrollCanvas() {
           </div>
 
           {/* Sign 3: Technical (Left) */}
-          <div ref={sign3Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
+          <div ref={sign3Ref} className="absolute inset-0 flex items-center justify-start w-full px-4 md:px-24 opacity-0 pointer-events-none">
             <a 
               href="#technical-login"
               onClick={(e) => {
                 e.preventDefault();
                 setTechModalOpen(true);
               }}
-              className="max-w-4xl w-full bg-[#0b1c16]/75 backdrop-blur-3xl border border-emerald-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(16,185,129,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-emerald-500/50 hover:shadow-[0_0_80px_-10px_rgba(16,185,129,0.5)] pointer-events-auto cursor-pointer block no-underline group"
+              className="max-w-[340px] w-full bg-[#080914]/90 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 shadow-[0_8px_32px_0_rgba(16,185,129,0.2)] pointer-events-auto cursor-pointer block no-underline transition-all duration-300 hover:scale-[1.02] text-left"
             >
-              {/* Glow accents */}
-              <div className="absolute top-0 right-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50" />
-              <div className="absolute -inset-20 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg flex items-center justify-center text-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">💻</div>
+                <span className="text-[7px] tracking-[0.2em] font-extrabold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20 uppercase">
+                  ✦ Architectural Excellence
+                </span>
+              </div>
               
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {/* Left Content */}
-                <div className="md:col-span-7 flex flex-col text-left">
-                  <div className="flex items-center gap-4 mb-5">
-                    <div className="w-14 h-14 bg-emerald-500/10 rounded-2xl border border-emerald-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(16,185,129,0.2)]">💻</div>
-                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-full border border-emerald-500/20 uppercase">
-                      ✦ Architectural Excellence
-                    </span>
+              <h3 className="text-xl font-extrabold text-white mb-1 tracking-tight leading-none">
+                Technical <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-500 bg-clip-text text-transparent">Field</span>
+              </h3>
+              <div className="w-6 h-[2px] bg-emerald-500 rounded mb-3" />
+              
+              <p className="text-white/70 text-[10px] md:text-xs leading-relaxed font-light mb-4">
+                Building robust architectures, engineering innovative solutions, and pushing the boundaries of modern technology.
+              </p>
+
+              {/* Centered 3D isometric Illustration */}
+              <div className="relative flex flex-col items-center justify-center w-full min-h-[140px] mb-4 select-none">
+                <div className="absolute w-36 h-36 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none" />
+                <img 
+                  src="/way/image/technical.webp" 
+                  alt="Technical illustration"
+                  className="w-full h-auto object-contain max-h-[140px] drop-shadow-[0_8px_20px_rgba(16,185,129,0.25)]" 
+                />
+                {/* Floating Translucent Glass Badge */}
+                <div className="absolute bottom-0 right-0 bg-[#0c0e20]/90 backdrop-blur-md border border-white/10 rounded-lg p-1.5 text-left shadow-xl max-w-[120px] z-20">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-[8px]">🔧</span>
+                    <span className="text-[7px] font-bold text-white uppercase tracking-wider">Engineering Power</span>
                   </div>
-                  
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
-                    Technical <span className="bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">Field</span>
-                  </h3>
-                  
-                  <div className="w-16 h-[3px] bg-emerald-500 rounded mb-5" />
-                  
-                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
-                    Building robust architectures, engineering innovative solutions, and pushing the boundaries of modern technology.
+                  <p className="text-[7px] text-white/50 leading-normal font-light">
+                    Designing high-performance backend systems & infrastructure.
                   </p>
-                  
-                  <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_4px_30px_rgba(16,185,129,0.5)] transition-all duration-300">
-                    <span>Access Portal</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Right Illustration */}
-                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
-                    <div className="absolute w-72 h-72 border border-emerald-500/10 rounded-full animate-[ping_3s_infinite]" />
-                    <div className="absolute w-56 h-56 border border-emerald-500/15 rounded-full" />
-                    <div className="absolute w-36 h-36 border border-emerald-500/20 rounded-full" />
-                  </div>
-
-                  <img src="/way/image/technical.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Technical Graphic" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
-
-                  {/* Mini Overlay Box */}
-                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-sm">🔧</span>
-                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Engineering Power</span>
-                    </div>
-                    <p className="text-[10px] text-white/50 leading-normal font-light">
-                      Designing high-performance backend systems & infrastructure.
-                    </p>
-                  </div>
                 </div>
               </div>
 
-              {/* Bottom Feature Row */}
-              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">🛠️</div>
+              {/* Access Portal button */}
+              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-4 py-2 rounded-lg text-white text-[9px] font-semibold flex items-center gap-1.5 w-fit shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300 mb-4">
+                <span>Access Portal</span>
+                <span className="text-[9px]">→</span>
+              </div>
+
+              {/* Bottom features list vertically stacked */}
+              <div className="border-t border-white/10 pt-3 flex flex-col gap-2 text-left relative z-10">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.15)] flex items-center justify-center text-emerald-400 text-[8px]">🛠️</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Software Engineering</h4>
-                    <p className="text-white/40 text-[10px] font-light">Robust, scalable architectures</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Software Engineering</h4>
+                    <p className="text-white/40 text-[6px] font-light">Scalable architectures</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">💡</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.15)] flex items-center justify-center text-emerald-400 text-[8px]">💡</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">R&D Innovation</h4>
-                    <p className="text-white/40 text-[10px] font-light">Pioneering next-gen solutions</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">R&D Innovation</h4>
+                    <p className="text-white/40 text-[6px] font-light">Pioneering solutions</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-sm">🛡️</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.15)] flex items-center justify-center text-emerald-400 text-[8px]">🛡️</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Infrastructure Scaling</h4>
-                    <p className="text-white/40 text-[10px] font-light">High availability & security</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Infrastructure Scaling</h4>
+                    <p className="text-white/40 text-[6px] font-light">High availability & security</p>
                   </div>
                 </div>
               </div>
@@ -528,85 +488,73 @@ export default function ScrollCanvas() {
           </div>
 
           {/* Sign 4: Financial (Right) */}
-          <div ref={sign4Ref} className="absolute inset-0 flex items-center justify-center w-full px-4 md:px-24 opacity-0 pointer-events-none">
-            <div className="max-w-4xl w-full bg-[#1b1509]/75 backdrop-blur-3xl border border-amber-500/30 rounded-[2.5rem] p-8 md:p-10 shadow-[0_0_60px_-15px_rgba(245,158,11,0.3)] relative overflow-hidden transition-all duration-500 hover:scale-[1.01] hover:border-amber-500/50 hover:shadow-[0_0_80px_-10px_rgba(245,158,11,0.5)] pointer-events-auto block group">
-              {/* Glow accents */}
-              <div className="absolute top-0 left-1/4 w-96 h-[2px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50" />
-              <div className="absolute -inset-20 bg-gradient-to-bl from-amber-500/10 to-red-500/5 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div ref={sign4Ref} className="absolute inset-0 flex items-center justify-end w-full px-4 md:px-24 opacity-0 pointer-events-none">
+            <div 
+              className="max-w-[340px] w-full bg-[#080914]/90 backdrop-blur-xl border border-white/20 rounded-[2rem] p-6 shadow-[0_8px_32px_0_rgba(245,158,11,0.2)] pointer-events-auto block no-underline transition-all duration-300 hover:scale-[1.02] text-left"
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg flex items-center justify-center text-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">💰</div>
+                <span className="text-[7px] tracking-[0.2em] font-extrabold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20 uppercase">
+                  ✦ Fiscal Stability
+                </span>
+              </div>
               
-              <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {/* Left Content */}
-                <div className="md:col-span-7 flex flex-col text-left">
-                  <div className="flex items-center gap-4 mb-5">
-                    <div className="w-14 h-14 bg-amber-500/10 rounded-2xl border border-amber-500/20 flex items-center justify-center text-2xl shadow-[0_0_20px_rgba(245,158,11,0.2)]">💰</div>
-                    <span className="text-[9px] tracking-[0.2em] font-extrabold text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/20 uppercase">
-                      ✦ Fiscal Stability
-                    </span>
+              <h3 className="text-xl font-extrabold text-white mb-1 tracking-tight leading-none">
+                Financial <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-amber-500 bg-clip-text text-transparent">Field</span>
+              </h3>
+              <div className="w-6 h-[2px] bg-amber-500 rounded mb-3" />
+              
+              <p className="text-white/70 text-[10px] md:text-xs leading-relaxed font-light mb-4">
+                Ensuring sustainable growth, managing resources efficiently, and securing long-term economic stability.
+              </p>
+
+              {/* Centered 3D isometric Illustration */}
+              <div className="relative flex flex-col items-center justify-center w-full min-h-[140px] mb-4 select-none">
+                <div className="absolute w-36 h-36 rounded-full bg-amber-500/10 blur-2xl pointer-events-none" />
+                <img 
+                  src="/way/image/financial.webp" 
+                  alt="Financial illustration"
+                  className="w-full h-auto object-contain max-h-[140px] drop-shadow-[0_8px_20px_rgba(245,158,11,0.25)]" 
+                />
+                {/* Floating Translucent Glass Badge */}
+                <div className="absolute bottom-0 right-0 bg-[#0c0e20]/90 backdrop-blur-md border border-white/10 rounded-lg p-1.5 text-left shadow-xl max-w-[120px] z-20">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <span className="text-[8px]">📊</span>
+                    <span className="text-[7px] font-bold text-white uppercase tracking-wider">Asset Management</span>
                   </div>
-                  
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight leading-none">
-                    Financial <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Field</span>
-                  </h3>
-                  
-                  <div className="w-16 h-[3px] bg-amber-500 rounded mb-5" />
-                  
-                  <p className="text-white/75 text-sm md:text-base leading-relaxed font-light mb-8 max-w-lg">
-                    Ensuring sustainable growth, managing resources efficiently, and securing long-term economic stability.
+                  <p className="text-[7px] text-white/50 leading-normal font-light">
+                    Ensuring long-term growth and capital efficiency.
                   </p>
-                  
-                  <div className="bg-gradient-to-r from-amber-600 to-orange-600 px-8 py-3.5 rounded-2xl text-white text-sm font-semibold flex items-center gap-3 w-fit shadow-[0_4px_20px_rgba(245,158,11,0.3)] hover:shadow-[0_4px_30px_rgba(245,158,11,0.5)] transition-all duration-300">
-                    <span>View Statements</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Right Illustration */}
-                <div className="md:col-span-5 relative flex items-center justify-center h-64 md:h-80 w-full rounded-3xl overflow-hidden bg-slate-950/40 border border-white/5">
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none scale-110">
-                    <div className="absolute w-72 h-72 border border-amber-500/10 rounded-full animate-[ping_3s_infinite]" />
-                    <div className="absolute w-56 h-56 border border-amber-500/15 rounded-full" />
-                    <div className="absolute w-36 h-36 border border-amber-500/20 rounded-full" />
-                  </div>
-
-                  <img src="/way/image/financial.webp" className="h-[80%] object-contain relative z-10 filter brightness-90 group-hover:scale-105 transition-transform duration-700" alt="Financial Graphic" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-15" />
-
-                  {/* Mini Overlay Box */}
-                  <div className="absolute bottom-4 right-4 bg-slate-950/60 backdrop-blur-xl border border-white/10 rounded-2xl p-4 max-w-[200px] text-left shadow-2xl z-20">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="text-sm">📊</span>
-                      <span className="text-[9px] font-bold text-white uppercase tracking-wider">Asset Management</span>
-                    </div>
-                    <p className="text-[10px] text-white/50 leading-normal font-light">
-                      Ensuring long-term growth and capital efficiency.
-                    </p>
-                  </div>
                 </div>
               </div>
 
-              {/* Bottom Feature Row */}
-              <div className="border-t border-white/10 mt-8 pt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left relative z-10">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">💼</div>
+              {/* View statements button */}
+              <div className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 px-4 py-2 rounded-lg text-white text-[9px] font-semibold flex items-center gap-1.5 w-fit shadow-[0_0_15px_rgba(245,158,11,0.3)] transition-all duration-300 mb-4">
+                <span>View Statements</span>
+                <span className="text-[9px]">→</span>
+              </div>
+
+              {/* Bottom features list vertically stacked */}
+              <div className="border-t border-white/10 pt-3 flex flex-col gap-2 text-left relative z-10">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-amber-500/10 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.15)] flex items-center justify-center text-amber-400 text-[8px]">💼</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Resource Allocation</h4>
-                    <p className="text-white/40 text-[10px] font-light">Smart capital management</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Resource Allocation</h4>
+                    <p className="text-white/40 text-[6px] font-light">Smart capital management</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">🛡️</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-amber-500/10 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.15)] flex items-center justify-center text-amber-400 text-[8px]">🛡️</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Risk Management</h4>
-                    <p className="text-white/40 text-[10px] font-light">Protecting assets & value</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Risk Management</h4>
+                    <p className="text-white/40 text-[6px] font-light">Protecting assets & value</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">🪙</div>
+                <div className="flex items-center gap-2 border-t border-white/5 pt-2">
+                  <div className="w-5 h-5 rounded-full bg-[#f59e0b]/10 border border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.15)] flex items-center justify-center text-amber-400 text-[8px]">🪙</div>
                   <div>
-                    <h4 className="text-white text-xs font-semibold">Financial Growth</h4>
-                    <p className="text-white/40 text-[10px] font-light">Sustainable economic scalability</p>
+                    <h4 className="text-white text-[9px] font-semibold leading-none">Financial Growth</h4>
+                    <p className="text-white/40 text-[6px] font-light">Sustainable scaling</p>
                   </div>
                 </div>
               </div>
