@@ -1,0 +1,134 @@
+{
+  "id": "lcft",
+  "number": "02",
+  "title": "Faculty of Technology",
+  "headerImage": "/points/lcft/4.jpg",
+  "components": [
+    {
+      "title": "",
+      "value": "<p><strong>FT. Two letters behind which lies more than just the name of the faculty. It represents the technology, the people, and a story that has been written in Zlín for more than half a century.<br></strong>Fifty-seven years is enough to have solid foundations and rich experience – and at the same time, not so long that the faculty would lose openness to new ideas and the courage to change things that no longer work.</p>\n<p>How is it possible that the faculty is older than the university itself? The answer lies in Zlín – then still Gottwaldov – and its strong industrial base. Already in the 1960s, it was clear that local industry needed university-educated technologists, so a detached branch of the <strong>Slovak Technical University</strong> in Bratislava was established here, later integrated under the Brno University of Technology. However, the path to establishing an independent faculty was not simple. The proposal for its establishment repeatedly returned to the desks of the Ministry of Education and required years of patience and effort. The result came on <strong>April 15, 1969</strong>, when by official decision of the government, the <strong>Faculty of Technology</strong> with its seat in Zlín was established as part of the Brno University of Technology.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "",
+      "slides": [
+        {
+          "source": "O4UZfzCHff0",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "fhCWBcaesCk",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "1Ii_AKBjBe0",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "uKfRzzqj4WM",
+          "type": "YOUTUBEBLOCK"
+        }
+      ],
+      "type": "CAROUSELBLOCK"
+    },
+    {
+      "title": "",
+      "value": "<p>The first field of study – Leather, Plastics, and Rubber Technology – precisely reflected the needs of the region. Specializations focused on footwear, plastics, and rubber followed. Gradually, other fields were added, along with the right to defend doctoral theses, habilitate associate professors, and appoint professors. In the 1990s, the foundations of other faculties were born precisely at the Faculty of Technology, opening the way to the creation of an independent university. <strong>Tomas Bata University in Zlín</strong> was officially established on January 1, 2001, and FT became one of its pillars.</p>\n<p><strong>Since the first years of the Faculty of Technology's existence, almost everything has changed.</strong> Buildings, laboratories, and technology. Typewriters and slide rules have been replaced by ultra-thin laptops, cutting-edge analytical methods, and an environment that meets current high demands for teaching and research. But what remains – and will remain forever – are the people. Those who study at the faculty, shape it, and move it forward.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "Faculty of Technology Today: Practical, Laboratory-Oriented, and Human",
+      "value": "<p>Today, the Faculty of Technology is a modern technical and chemical school built on the solid foundations of natural sciences. On these foundations, it builds studies and research that have a direct relationship to the real world. 'The results of our work are reflected in things we encounter every day – in packaging, food, cars, cosmetics, healthcare, or how we manage waste. We deal with how to produce, improve, recycle, and make things safer and more environmentally friendly. For us, science is not a distant experiment, but a part of the everyday functioning of society,' explains the dean of the faculty, Prof. Roman Čermák.</p>\n<p>A strong and long-term domain of the faculty is <strong>polymers</strong>. Plastics, rubber, collagen, and other macromolecular materials belong to fields the faculty has been dedicated to for decades. <strong>In polymer sciences, it is the most successful university in the Czech Republic</strong>, which is confirmed by the quality of research and the high number of professional publications.</p>\n<p>Today, the faculty has eight departments, approximately 1,800 students, and a wide spectrum of fields – from <strong>materials and technological directions to food science, gastronomy, and nutrition, environment, bioactive substances, and semiconductor materials all the way to mechanical engineering. The portfolio of study programs develops and changes according to</strong> the changing needs of society and practice. An example is the newly accredited study program <strong>Radiological Assistance</strong>, which expands the technical scope of the faculty towards medical applications of modern technologies.</p>\n<p>'However, we also care about the human dimension of study. Students are not anonymous numbers to us. Teaching takes place in smaller groups, is individualized, and based on personal contact. We try to create an environment where it is normal to ask, discuss, make mistakes, and find one's own path. This includes humor and ordinary human communication – because the academic environment does not have to be distant,' describes Dean Prof. Čermák.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "",
+      "slides": [
+        {
+          "source": "/points/lcft/1.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "In the places where the Laboratory Center of the Faculty of Technology (building U15) stands today, there used to be a swimming pool ('Baťák'). The swimming pool that was once here would be hard to find in Zlín today. During the Film Harvest in 1941, the then film star Adina Mandlová visited it. Photo: State District Archives Zlín",
+          "thumbnail": "/points/lcft/1__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/2.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The Faculty of Technology, the oldest of TBU's faculties, commemorated the 55th anniversary of its existence in 2024. The celebrations culminated in the largest gathering of FT alumni in history.",
+          "thumbnail": "/points/lcft/2__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/3.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "Due to the emergency state of the structural stability, the original U1 building was demolished. On November 8, 2024, a ceremonial tapping of the foundation stone of the new building took place.",
+          "thumbnail": "/points/lcft/3__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/4.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "This is what the new U1 will look like – and actually almost already looks like. Teaching in it is scheduled to start in spring 2027.",
+          "thumbnail": "/points/lcft/4__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/5.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The Faculty of Technology is also growing professionally – in 2025, Jiří Navrátil, together with his supervisor Michal Rouchal, won the prestigious Werner von Siemens Award for first place in the 'Best Diploma Thesis' category.",
+          "thumbnail": "/points/lcft/5__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/6.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "Interesting projects are created at the Faculty of Technology, the results of which arouse media interest. These include the project of Professor Petr Humpolíček's team aimed at developing a unique model of the human small intestine, which can replace animal testing. Another is the development of an elastomer resistant to radiation, oil, and extreme temperatures to increase the safety of nuclear power plants, with Simona Mrkvičková as the main researcher.",
+          "thumbnail": "/points/lcft/6__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/7.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "A prominent personality of the faculty is Prof. Martin Zatloukal, who became the youngest professor in the Czech Republic at just 32 years of age. He focuses on the rheology of macromolecular substances, modeling the flow of polymer melts, and processing polymers. He is the holder of numerous awards, and thanks to his initiative, the international conference 'Novel Trends in Rheology' is held at the Faculty of Technology every two years, which for 20 years has belonged to the significant scientific meetings in the field of rheology and polymer engineering.",
+          "thumbnail": "/points/lcft/7__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/8.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The Faculty of Technology is the main organizer of Researchers' Night (newly 'Night of Science') at TBU. This European-wide event for small and big science lovers is highly popular, and all TBU faculties participate in its rich program. Visitors can look forward to attractive experiments, workshops, and lectures.",
+          "thumbnail": "/points/lcft/8__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/9.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The Faculty of Technology organizes a number of activities for all age groups – from the 'Secret Laboratory' for the youngest at the Zlín Film Festival to the first Zlín scientific festival 'Experience Science'. This two-day festival for high school students and the general public offers more than twenty themed workshops where everyone can try the role of a scientist for a moment.",
+          "thumbnail": "/points/lcft/9__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/10.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "For more than ten years, FT has been a meeting place for scientists and the public during lectures and discussions at 'Science Café' – under the slogan 'coffee and science for free'. These meetings offer an opportunity to learn something new, help break down barriers between the university and non-academic environments, and give scientists space to share their findings with the wider public.",
+          "thumbnail": "/points/lcft/10__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/11.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "You can visit the Faculty of Technology twice a year during the Open House Day, where applicants and their parents are personally guided by the dean of the faculty, Professor Roman Čermák. However, the event would not be possible without students who present their study programs and share their own experiences.",
+          "thumbnail": "/points/lcft/11__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/12.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "They also try to create a pleasant environment for the 1,800 students, without whom no event would be possible. To make them feel 'at home' at the Faculty of Technology, events such as 'Breakfast with Vice-Deans' are held, where they can informally discuss their study and non-study matters.",
+          "thumbnail": "/points/lcft/12__tumbnail.jpg"
+        },
+        {
+          "source": "/points/lcft/13.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "In the summer, students can spend time in the laboratory during a Summer Internship. Not only do they improve their knowledge and gain valuable practice, but they also earn money and can gradually become part of a research team.",
+          "thumbnail": "/points/lcft/13__tumbnail.jpg"
+        }
+      ],
+      "type": "CAROUSELBLOCK"
+    },
+    {
+      "title": "Other interesting facts",
+      "value": "<p><strong>A faculty that is constantly being built. Literally.</strong></p>\n<p>The Faculty of Technology has never closed in on itself. Since its inception, it has been transforming along with changes in technology, society, and demands on education and research. This applies to study programs, research topics, and the way work and study are conducted at the faculty.</p>\n<p>In addition to the modern building of the Laboratory Center U15, the faculty is entering another important phase today. On the site of the original historic U1 building, <strong>a new building of the Faculty of Technology is being built</strong>. It will offer modern spaces for teaching, laboratories, and common meetings, creating a worthy environment for the further development of the faculty in the coming years.</p>\n<p>Thus, even after more than half a century, the Faculty of Technology remains a place built on solid foundations but looking forward. A place where traditions only make sense if they give space to new ideas.</p>",
+      "type": "TEXTBLOCK"
+    }
+  ]
+}

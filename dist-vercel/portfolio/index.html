@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script>var exports = {};</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <meta name="mobile-web-app-capable" content="yes">
@@ -11,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet" />
-    <title>Entraiot Solution :: World Begins :: Portfolio</title>
+    <title>Entraiot Solution :: World Begins Like This :: Portfolio</title>
     <meta
       name="description"
-      content="I'm Entraiot Solution, a french 'Gen X' World Begins. Throughout my career, I have worked on multiple sized projects in various roles, including Project Manager, Designer and Front/Back-end Developer."
+      content="I'm Entraiot Solution, a french 'Gen X' World Begins Like This. Throughout my career, I have worked on multiple sized projects in various roles, including Project Manager, Designer and Front/Back-end Developer."
     />
     <style>
       body {
@@ -37,187 +36,183 @@
         pointer-events: none;
         display: grid;
         place-content: center;
-        &.preloader--france {
-          background-color: var(--france-color);
-        }
-        &.preloader--luxembourg {
-          background-color: var(--luxembourg-color);
-        }
-        &.preloader--belgium {
-          background-color: var(--belgium-color);
-        }
-        & code {
-          display: block;
-          position: absolute;
-          z-index: 0;
-          bottom: auto;
-          left: 50%;
-          transform: translateX(-50%);
-          font-family: "Zen Dots", sans-serif;
-          font-size: 15vmin;
-          letter-spacing: 0.15em;
-          opacity: 0.05;
-          transition: opacity 1200ms ease;
-        }
-        & > div.motorbike {
-          position: relative;
-          z-index: 1;
-          left: 0;
-          top: -55px;
-          opacity: 0;
-          transform-origin: center bottom;
-          transform: scale(0.8);
-          transition: opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1), left 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
-          &::after,
-          &::before {
-            content: "";
-            display: block;
-            width: 88px;
-            height: 88px;
-            position: absolute;
-            z-index: 0;
-            bottom: -20px;
-            background-image: url("/portfolio/image/motorbike-wheel.png");
-            animation: wheelAnimation 220ms linear infinite;
-          }
-          &::after {
-            left: 10px;
-          }
-          &::before {
-            right: -10px;
-          }
-
-          & > img {
-            animation: motocycleAnimation 15ms infinite alternate;
-            position: relative;
-            z-index: 1;
-          }
-          &.active {
-            opacity: 1;
-            left: 0;
-            &::after {
-              opacity: 1;
-            }
-          }
-        }
-        & > .city {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateX(-50%) translateY(-50%);
-          width: 1000px;
-          height: 186px;
-          background-image: url("/portfolio/image/city.png");
-          mask: radial-gradient(circle, black 25%, transparent 75%);
-          opacity: 0.25;
-          background-repeat: repeat-x;
-          background-position: 0 0;
-          animation: cityAnimation 5s linear infinite;
-          transition: opacity 1200ms cubic-bezier(0.22, 0.61, 0.36, 1) 450ms;
-        }
-        & > .preloader-enter {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 999;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          &::before {
-            content: "";
-            display: block;
-            width: 25dvw;
-            height: 105px;
-            transform: translateY(5px);
-            background-image: url("/portfolio/image/preload-monuments.png");
-            background-position: 0 0;
-            margin: 0 auto;
-            transition: clip-path 500ms ease 50ms;
-            clip-path: inset(0 0 0 100%);
-            animation: monumentsAnimation 8s linear infinite;
-          }
-          & > .button-start {
-            display: block;
-            position: relative;
-            background-color: transparent;
-            border: 2px solid #d3b3c9;
-            min-width: 25dvw;
-            background: #8b7082;
-            text-transform: uppercase;
-            color: white;
-            border-radius: 3px;
-            padding: 10px 20px;
-            font-size: 1.5em;
-            cursor: pointer;
-            margin: 0 auto;
-            transition: background-color 300ms ease;
-            font-family: "zen dots", sans-serif;
-            text-align: center;
-            text-decoration: none;
-            pointer-events: auto;
-            clip-path: inset(0 100% 0px 0);
-            transition: clip-path 500ms ease-out 50ms, background-color 300ms ease;
-            &::after {
-              content: "";
-              display: block;
-              position: absolute;
-              top: -115px;
-              left: 50%;
-              width: 300px;
-              background: radial-gradient(ellipse at center, #f0eff0 -60%, transparent 55%) padding-box;
-              mix-blend-mode: plus-lighter;
-              height: 300px;
-              opacity: 0.6;
-              transform: translateX(-50%) scale(1.5);
-            }
-            &:hover {
-              background-color: #5c4655;
-              color: #fff;
-            }
-          }
-          & > p {
-            clip-path: inset(0 100% 0 0);
-            transition: clip-path 500ms ease-out 50ms;
-            font-size: medium;
-            margin: 5px 0;
-            letter-spacing: 0.2em;
-            &:nth-of-type(1) {
-              margin-top: 25px;
-            }
-          }
-        }
-        &.end {
-          & > div.motorbike {
-            transition-duration: 1200ms;
-            left: 400px;
-            opacity: 0;
-          }
-          & code {
-            opacity: 0;
-          }
-          & > .city,
-          &::after {
-            opacity: 0;
-          }
-          & > .preloader-enter {
-            &::before {
-              opacity: 0.85;
-              clip-path: inset(0 0 0 0);
-              pointer-events: none;
-            }
-            & > .button-start {
-              clip-path: inset(0 0 0 0);
-            }
-            & > p {
-              clip-path: inset(0 0 0 0);
-              pointer-events: none;
-            }
-          }
-        }
       }
+      #preloader.preloader--france {
+        background-color: var(--france-color);
+      }
+      #preloader.preloader--luxembourg {
+        background-color: var(--luxembourg-color);
+      }
+      #preloader.preloader--belgium {
+        background-color: var(--belgium-color);
+      }
+      #preloader code {
+        display: block;
+        position: absolute;
+        z-index: 0;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Zen Dots", sans-serif;
+        font-size: 15vmin;
+        letter-spacing: 0.15em;
+        opacity: 0.05;
+        transition: opacity 1200ms ease;
+      }
+      #preloader > div.motorbike {
+        position: relative;
+        z-index: 1;
+        left: 0;
+        top: -55px;
+        opacity: 0;
+        transform-origin: center bottom;
+        transform: scale(0.8);
+        transition: opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1), left 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      #preloader > div.motorbike::after,
+      #preloader > div.motorbike::before {
+        content: "";
+        display: block;
+        width: 88px;
+        height: 88px;
+        position: absolute;
+        z-index: 0;
+        bottom: -20px;
+        background-image: url("/portfolio/image/motorbike-wheel.png");
+        animation: wheelAnimation 220ms linear infinite;
+      }
+      #preloader > div.motorbike::after {
+        left: 10px;
+      }
+      #preloader > div.motorbike::before {
+        right: -10px;
+      }
+      #preloader > div.motorbike > img {
+        animation: motocycleAnimation 15ms infinite alternate;
+        position: relative;
+        z-index: 1;
+      }
+      #preloader > div.motorbike.active {
+        opacity: 1 !important;
+        left: 0 !important;
+      }
+      #preloader > div.motorbike.active::after {
+        opacity: 1 !important;
+      }
+      #preloader > .city {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 1000px;
+        height: 186px;
+        background-image: url("/portfolio/image/city.png");
+        mask: radial-gradient(circle, black 25%, transparent 75%);
+        opacity: 0.25;
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        animation: cityAnimation 5s linear infinite;
+        transition: opacity 1200ms cubic-bezier(0.22, 0.61, 0.36, 1) 450ms;
+      }
+      #preloader > .preloader-enter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      #preloader > .preloader-enter::before {
+        content: "";
+        display: block;
+        width: 25dvw;
+        height: 105px;
+        transform: translateY(5px);
+        background-image: url("/portfolio/image/preload-monuments.png");
+        background-position: 0 0;
+        margin: 0 auto;
+        transition: clip-path 500ms ease 50ms;
+        clip-path: inset(0% 0% 0% 100%);
+        animation: monumentsAnimation 8s linear infinite;
+      }
+      #preloader > .preloader-enter > .button-start {
+        display: block;
+        position: relative;
+        background-color: transparent;
+        border: 2px solid #d3b3c9;
+        min-width: 25dvw;
+        background: #8b7082;
+        text-transform: uppercase;
+        color: white;
+        border-radius: 3px;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        cursor: pointer;
+        margin: 0 auto;
+        transition: background-color 300ms ease;
+        font-family: "zen dots", sans-serif;
+        text-align: center;
+        text-decoration: none;
+        pointer-events: auto;
+        clip-path: inset(0% 100% 0% 0%);
+        transition: clip-path 500ms ease-out 50ms, background-color 300ms ease;
+      }
+      #preloader > .preloader-enter > .button-start::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -115px;
+        left: 50%;
+        width: 300px;
+        background: radial-gradient(ellipse at center, #f0eff0 -60%, transparent 55%) padding-box;
+        mix-blend-mode: plus-lighter;
+        height: 300px;
+        opacity: 0.6;
+        transform: translateX(-50%) scale(1.5);
+      }
+      #preloader > .preloader-enter > .button-start:hover {
+        background-color: #5c4655;
+        color: #fff;
+      }
+      #preloader > .preloader-enter > p {
+        clip-path: inset(0% 100% 0% 0%);
+        transition: clip-path 500ms ease-out 50ms;
+        font-size: medium;
+        margin: 5px 0;
+        letter-spacing: 0.2em;
+      }
+      #preloader > .preloader-enter > p:nth-of-type(1) {
+        margin-top: 25px;
+      }
+      #preloader.end > div.motorbike {
+        transition-duration: 1200ms;
+        left: 400px !important;
+        opacity: 0 !important;
+      }
+      #preloader.end code {
+        opacity: 0 !important;
+      }
+      #preloader.end > .city,
+      #preloader.end::after {
+        opacity: 0 !important;
+      }
+      #preloader.end > .preloader-enter::before {
+        opacity: 0.85 !important;
+        clip-path: inset(0% 0% 0% 0%) !important;
+        pointer-events: none !important;
+      }
+      #preloader.end > .preloader-enter > .button-start {
+        clip-path: inset(0% 0% 0% 0%) !important;
+      }
+      #preloader.end > .preloader-enter > p {
+        clip-path: inset(0% 0% 0% 0%) !important;
+        pointer-events: none !important;
+      }
+
       html.html--loaded #preloader {
         &::after {
           display: none;
@@ -544,72 +539,6 @@
     <div id="skip-stage1" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999999999999999999999; background: rgba(0,0,0,0.5); color: white; border: 1px solid white; padding: 10px 20px; font-family: 'Zen Dots', sans-serif; cursor: pointer; text-transform: uppercase; border-radius: 4px; transition: background 0.3s;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'" onclick="skipStage1()">
       Skip
     </div>
-    <!-- Management Department Visme Login Modal Popup -->
-    <div id="visme-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999999999999999; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-      <div style="position: relative; width: 90%; max-width: 800px; height: 85vh; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column;">
-        <div style="display: flex; justify-content: space-between; align-items: center; background: #8b7082; color: #fff; padding: 12px 24px; font-family: 'Zen Dots', sans-serif;">
-          <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Management Portal</span>
-          <span id="close-visme-modal" style="cursor: pointer; font-size: 24px; line-height: 1; font-weight: bold;">&times;</span>
-        </div>
-        <div id="visme-container" style="flex: 1; width: 100%; height: 100%; overflow: auto; padding: 10px; background: #fafafa;">
-          <div class="visme_d" data-title="Club Membership Sign Up Form" data-url="6vz8o9k7-club-membership-sign-up-form?fullPage=true" data-domain="forms" data-full-page="true" data-min-height="100vh" data-form-id="177550"></div>
-          <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-        </div>
-      </div>
-    </div>
-
-    <!-- Technical Department Visme Login Modal Popup -->
-    <div id="visme-tech-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999999999999999; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-      <div style="position: relative; width: 90%; max-width: 800px; height: 85vh; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column;">
-        <div style="display: flex; justify-content: space-between; align-items: center; background: #8b7082; color: #fff; padding: 12px 24px; font-family: 'Zen Dots', sans-serif;">
-          <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Technical Portal</span>
-          <span id="close-visme-tech-modal" style="cursor: pointer; font-size: 24px; line-height: 1; font-weight: bold;">&times;</span>
-        </div>
-        <div id="visme-tech-container" style="flex: 1; width: 100%; height: 100%; overflow: auto; padding: 10px; background: #fafafa;">
-          <div class="visme_d" data-title="Club Membership Sign Up Form" data-url="koe11w6k-club-membership-sign-up-form?fullPage=true" data-domain="forms" data-full-page="true" data-min-height="100vh" data-form-id="178802"></div>
-          <script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-        </div>
-      </div>
-    </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const modal = document.getElementById("visme-modal");
-        const closeModal = document.getElementById("close-visme-modal");
-
-        const techModal = document.getElementById("visme-tech-modal");
-        const closeTechModal = document.getElementById("close-visme-tech-modal");
-
-        function openModal(m) {
-          m.style.display = "flex";
-          setTimeout(() => {
-            m.style.opacity = "1";
-          }, 10);
-        }
-
-        function hideModal(m) {
-          m.style.opacity = "0";
-          setTimeout(() => {
-            m.style.display = "none";
-          }, 300);
-        }
-
-        // Catch clicks on login links
-        document.addEventListener("click", (e) => {
-          const a = e.target.closest("a");
-          if (a) {
-            const href = a.getAttribute("href");
-            if (href === "#management-login") {
-              e.preventDefault();
-              openModal(modal);
-            } else if (href === "#technical-login") {
-              e.preventDefault();
-              openModal(techModal);
-            }
-          }
-        });
-      });
-    </script>
 
     <!-- Drifting Car Animation Overlay -->
     <div id="drift-overlay">

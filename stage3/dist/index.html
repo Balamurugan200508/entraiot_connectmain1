@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <script type="module" crossorigin src="/buildings/assets/index-av_-CE32.js"></script>
   <link rel="stylesheet" crossorigin href="/buildings/assets/index-Bs7OQl-f.css">
 </head>
@@ -170,5 +170,161 @@
   </div>
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script>
+    // Double security: if the modal somehow still opens, hide it and redirect
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'style') {
+          const modal = mutation.target;
+          if (modal.style.display === 'flex' && !window.hasRedirected) {
+            if (window.lastClickX !== undefined) {
+              const labels = Array.from(document.querySelectorAll('.building-label'));
+              let closestLabel = null;
+              let minDistanceX = Infinity;
+              
+              labels.forEach(label => {
+                if (label.style.left) {
+                  const rect = label.getBoundingClientRect();
+                  const labelCenterX = rect.left + rect.width / 2;
+                  const distX = Math.abs(window.lastClickX - labelCenterX);
+                  if (distX < minDistanceX) {
+                    minDistanceX = distX;
+                    closestLabel = label;
+                  }
+                }
+              });
+
+              if (closestLabel) {
+                modal.style.display = 'none';
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none';
+                window.hasRedirected = true;
+
+                let targetUrl = '';
+                let devPort = '';
+                
+                if (closestLabel.id === 'label-0') {
+                  targetUrl = '/management';
+                  devPort = '3003';
+                } else if (closestLabel.id === 'label-1') {
+                  targetUrl = '/marketing';
+                  devPort = '3004';
+                } else if (closestLabel.id === 'label-2' || closestLabel.id === 'label-3') {
+                  targetUrl = '/technical';
+                  devPort = '3005';
+                } else if (closestLabel.id === 'label-4') {
+                  targetUrl = '/financial';
+                  devPort = '3006';
+                } else if (closestLabel.id === 'label-5') {
+                  targetUrl = '/client-handling';
+                  devPort = '3007';
+                }
+
+                if (targetUrl) {
+                  if (window.location.port === '3002') {
+                    targetUrl = window.location.protocol + '//' + window.location.hostname + ':' + devPort + targetUrl + '/';
+                  }
+                  window.location.href = targetUrl;
+                }
+              }
+            }
+          }
+        }
+      });
+    });
+
+    window.addEventListener('pageshow', (event) => {
+      window.hasRedirected = false;
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const style = document.createElement('style');
+      style.textContent = `
+        .building-label {
+          pointer-events: auto !important;
+          cursor: pointer !important;
+        }
+      `;
+      document.head.appendChild(style);
+
+      const modal = document.getElementById('work-modal');
+      if (modal) {
+        observer.observe(modal, { attributes: true });
+      }
+    });
+
+    function handleBuildingInteraction(e) {
+      // Exclude menu, navigation, or close button clicks
+      if (e.target.closest('#nav') || e.target.closest('#menu') || e.target.id === 'close-modal') {
+        return;
+      }
+
+      const clickX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+      if (clickX === null || clickX === undefined) return;
+      window.lastClickX = clickX;
+      
+      // Find the closest building label horizontally
+      const labels = Array.from(document.querySelectorAll('.building-label'));
+      let closestLabel = null;
+      let minDistanceX = Infinity;
+      
+      labels.forEach(label => {
+        if (label.style.left) {
+          const rect = label.getBoundingClientRect();
+          const labelCenterX = rect.left + rect.width / 2;
+          const distX = Math.abs(clickX - labelCenterX);
+          if (distX < minDistanceX) {
+            minDistanceX = distX;
+            closestLabel = label;
+          }
+        }
+      });
+      
+      if (closestLabel) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        if (!window.hasRedirected && (e.type === 'click' || e.type === 'pointerup' || e.type === 'touchend' || e.type === 'mouseup')) {
+          window.hasRedirected = true;
+          
+          let targetUrl = '';
+          let devPort = '';
+          
+          if (closestLabel.id === 'label-0') {
+            targetUrl = '/management';
+            devPort = '3003';
+          } else if (closestLabel.id === 'label-1') {
+            targetUrl = '/marketing';
+            devPort = '3004';
+          } else if (closestLabel.id === 'label-2' || closestLabel.id === 'label-3') {
+            targetUrl = '/technical';
+            devPort = '3005';
+          } else if (closestLabel.id === 'label-4') {
+            targetUrl = '/financial';
+            devPort = '3006';
+          } else if (closestLabel.id === 'label-5') {
+            targetUrl = '/client-handling';
+            devPort = '3007';
+          }
+
+          if (targetUrl) {
+            if (window.location.port === '3002') {
+              targetUrl = window.location.protocol + '//' + window.location.hostname + ':' + devPort + targetUrl + '/';
+            }
+            window.location.href = targetUrl;
+          }
+        }
+      }
+    }
+
+    // Intercept during capture phase for all pointer/touch/mouse events
+    document.addEventListener('click', handleBuildingInteraction, true);
+    document.addEventListener('pointerdown', handleBuildingInteraction, true);
+    document.addEventListener('pointerup', handleBuildingInteraction, true);
+    document.addEventListener('mousedown', handleBuildingInteraction, true);
+    document.addEventListener('mouseup', handleBuildingInteraction, true);
+    document.addEventListener('touchstart', handleBuildingInteraction, true);
+    document.addEventListener('touchend', handleBuildingInteraction, true);
+  </script>
 </body>
 </html>

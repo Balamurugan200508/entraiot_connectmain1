@@ -1,0 +1,118 @@
+{
+  "id": "u13",
+  "number": "03",
+  "title": "University Center",
+  "headerImage": "/points/u13/u13_main.jpg",
+  "components": [
+    {
+      "title": "",
+      "value": "<p>'Today will go down in the history of the university. Indeed, not only the university, but also in the history of the city and the history of architecture.' That is how the most frequent sentences heard at TBU on <strong>June 17, 2008</strong> could be expressed. That was the day when the <strong>University Center was officially opened</strong> – the current seat of the TBU Library and the rectorate. The guide for the entire event was the prominent Czech presenter Marek Eben.</p>\n<p>The University Center building became the first of the buildings that brought back to Zlín one of its most famous natives, the world-renowned architect and designer Eva Jiřičná. By opening this building, the university symbolically connected to the Baťa architecture in Zlín. Indeed, Professor Jiřičná's father worked as an architect for the Baťa company, and his daughter joyfully continued his work.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "",
+      "slides": [
+        {
+          "source": "/points/u13/6.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "While the University Center was completed in 2008, the Congress Center, belonging to the city, saw its grand opening two years later, on September 29, 2010.",
+          "thumbnail": "/points/u13/6__tumbnail.jpg"
+        }
+      ],
+      "type": "CAROUSELBLOCK"
+    },
+    {
+      "title": "",
+      "value": "<p>The University Center building consists of two wings connected by a covered atrium. The northern wing became the seat of the rectorate offices, while the TBU Library is located in the southern wing. 'The fact that it is a quality library is confirmed by its inclusion since 2010 on the prestigious website <a href=\"http://www.librarybuildings.info/\">www.librarybuildings.info</a>, which presents the best European library buildings today,' points out library director PhDr. Ondřej Fabián.</p>\n<p>Let us add that the University Center became the first, but not the last, building by Eva Jiřičná in Zlín. In 2010, the Congress Center was completed, with the city as the investor, and in 2018, the TBU Educational Complex, also designed by Prof. Jiřičná, was built on Štefánikova Street in Zlín as the seat of the Faculty of Humanities.</p>\n<p>Between 2020 and 2021, a complete reconstruction of the university assembly hall (aula) in the building of the Faculty of Management and Economics on Mostní Street in Zlín took place, also designed by architect Eva Jiřičná. The goal of the reconstruction was to modernize the interior, equipment, and improve acoustics. The modern space with new seats, audio technology, and design elements now serves university and extracurricular activities.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "",
+      "slides": [
+        {
+          "source": "kECxjMUx0W4",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "T5zlmgVKADY",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "Ch-1ZQSaLMs",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "/points/u13/1.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "Since 2008, the seat of the library and rectorate is the University Center building (U13), located in Zlín at T. G. Masaryk Square 5555.",
+          "thumbnail": "/points/u13/1__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/2.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "Many VIP guests attended the grand opening of the University Center on June 17, 2008. The most prominent among them was Tomáš Baťa Jr., and the moderator of this exceptional event for the university was Marek Eben. The band Hradišťan provided the musical accompaniment.",
+          "thumbnail": "/points/u13/2__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/3.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The author of the Congress and University Center, Prof. Eva Jiřičná, with TBU Board of Governors Chairman Tomáš Baťa Jr. and then-rector Prof. Ignác Hoza (2008).",
+          "thumbnail": "/points/u13/3__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/4.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The complex of buildings named the Congress and University Center grew on the site of the former Masaryk Schools in the center of Zlín. These were built according to the design of architect František Lydie Gahura, and the Baťa company called them \"experimental schools\" because new pedagogical trends were tested in them. Practical teaching was prioritized over memorization, and emphasis was placed on foreign language instruction. Teaching took place in the schools until 1986, and they were demolished in 1988 due to the dilapidated state of the buildings.",
+          "thumbnail": "/points/u13/4__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/5.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The atrium of the University Center directly invites the hosting of festive events such as the award of TBU honorary doctorates, as well as exhibitions or student events. Part of the ZFF accompanying program takes place here, or it turns into a press center during the Barum Czech Rally.",
+          "thumbnail": "/points/u13/5__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/6.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "While the University Center was completed in 2008, the Congress Center, belonging to the city, saw its grand opening two years later, on September 29, 2010.",
+          "thumbnail": "/points/u13/6__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/7.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The buildings in Zlín designed by Prof. Eva Jiřičná draw admiration from architects and the general public alike.",
+          "thumbnail": "/points/u13/7__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/8.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "Tomas Bata University, together with the city of Zlín, took advantage of a unique opportunity to present themselves in the USA in May 2008, when they had the opportunity to present themselves at the Czech Center and the Czech National Building in New York. For this occasion, the university created a series of photographs promoting the newly built University Center in Zlín by the world-famous architect Prof. Jiřičná, featuring the then very popular Miss World 2006 Taťána Kuchařová. The photographs were taken by the leading Czech photographer Lucie Robinson, the dresses were designed by academic painter Šárka Šišková, head of the Clothing Design studio at FMK. The photographs were taken in the University Center even before its grand opening. In the following years, the exhibition was presented in other Czech centers abroad.",
+          "thumbnail": "/points/u13/8__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/9.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The TBU Library is the largest specialized library in the Zlín Region. It is used by nearly six thousand users, mostly students and employees, but also around seven hundred professional readers from the public. The collection consists of more than 148,000 books, approximately two hundred titles of newspapers and magazines, electronic theses of students, and nearly one hundred scientific databases with thousands of professional articles and e-books.",
+          "thumbnail": "/points/u13/9__tumbnail.jpg"
+        },
+        {
+          "source": "/points/u13/10.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "We followed up the construction of the University Center by Eva Jiřičná with the reconstruction of the assembly hall of Tomas Bata University in Zlín, which received the highest award in the Building of the Year 2021 competition of the Zlín Region. The Grand Prix of architect Pavel Novák was accepted by the author of the design, Prof. Eva Jiřičná, together with then-rector of TBU Prof. Vladimír Sedlařík. The original assembly hall, almost thirty years old, was transformed into a representative and modernly furnished space. It offers completely new seats, a modern interior, state-of-the-art audio technology, a foyer, and social facilities. This created a unique place not only for the needs of the university, but also for cultural and educational events in Zlín.",
+          "thumbnail": "/points/u13/10__tumbnail.jpg"
+        }
+      ],
+      "type": "CAROUSELBLOCK"
+    },
+    {
+      "title": "Return of Eva Jiřičná to Zlín",
+      "value": "<p>It was clear from the moment work began on the project for an independent higher education institution in Zlín that the university would need enough facilities for the gradually established faculties. However, equal attention had to be paid to securing corresponding spaces for the university library (which manages not only library and other printed collections but is also the central office for processing and storing data), as well as for the university management and administration – the rectorate.</p>\n<p>'When I received an honorary doctorate in Brno years ago, I met the rector of TBU, Prof. Petr Sáha, for the first time. The rector suggested whether I would like to come and visit Zlín. A few months later, the rector called me and said that he was discussing a plot of land with the city for the construction of a library,' recalls Prof. Jiřičná about the beginnings of her cooperation with the university. And indeed – at the end of 2001, the construction intent was formulated, and in the following year, it was already clear where the building would grow. 'A discussion took place at the town hall about cooperation between the university and the city, where it was suggested that the university and the city could build a complex of buildings on the site of former schools in the center of the city,' the architect adds.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "Congress and University Center",
+      "value": "<p>The plot of land on which the so-called Masaryk Schools originally stood has an ideal location; almost all other university buildings are within a few minutes' walk of it. And since the city of Zlín needed to build a new facility for holding cultural and social events, it was decided to build a complex of two buildings – the Congress and University Center in Zlín.</p>\n<p>The university secured funding for the construction of its part of the complex first, so it could start work at the end of 2005.</p>\n<p>'On November 25, 2005, demolition work began on the so-called Musicland A, the last building that still stood on the plot,' recalled the then TBU bursar RNDr. Alexander Černý. At the beginning of the following year, other preparatory work followed, such as the relocation of utility lines, and on May 30, 2006, construction was officially launched. On this day, the foundation stone of the building was symbolically laid in the presence of the then Minister of Education Petra Buzková. 'I wish the university that the new building provides spaces that will help its integration into the European research and educational space. And to all of us, that the construction contributes to creating the facilities of a modern, confident university that will secure recognition and respect not only in the national but also international context, and will contribute significantly to the development of the 21st-century knowledge society,' said the minister.</p>",
+      "type": "TEXTBLOCK"
+    }
+  ]
+}

@@ -9,10 +9,19 @@
   "scripts": {
     "build:stage2": "cd stage2 && npm install && npm run build",
     "build:stage3": "cd stage3 && npm install && npm run build",
-    "build:prod": "npm run build:stage2 && npm run build:stage3 && mkdir -p dist-vercel && cp -r stage1 dist-vercel/portfolio && cp -r stage2/out dist-vercel/way && cp -r stage3/dist dist-vercel/buildings",
+    "build:management": "cd \"management workspace\" && npm install && npm run build",
+    "build:marketing": "cd \"marketing workspace\" && npm install && npm run build",
+    "build:technical": "cd \"technical workspace\" && npm install && npm run build",
+    "build:financial": "cd \"financial workspace\" && npm install && npm run build",
+    "build:clienthandling": "cd \"client handling workspace\" && npm install && npm run build",
+    "build:ceo": "cd \"entraiot-ceo-main/entraiot-ceo-main\" && npm install && npm run build",
+    "build:md": "cd \"entraiot MD\" && npm install && npm run build",
+    "build:developer": "cd \"Entraiot developer\" && npm install && npm run build",
+    "build:developer2": "cd \"Entraiot developer 2\" && npm install && npm run build",
+    "build:prod": "node build.js",
     "build": "npm run build:prod",
     "start": "cross-env NODE_ENV=production node server.js",
-    "dev": "concurrently --names SERVER,NEXT,VITE --prefix-colors cyan,green,magenta \"node server.js\" \"cd stage2 && npm run dev -- --port 3001\" \"cd stage3 && npx vite --port 3002\""
+    "dev": "concurrently --names SERVER,NEXT,VITE,MGMT,MKTG,TECH,FIN,CLIENT,CEO,MD,DEV,DEV2 --prefix-colors cyan,green,magenta,yellow,blue,red,gray,white,yellow,magenta,cyan,blue \"node server.js\" \"cd stage2 && npm run dev -- --port 3001\" \"cd stage3 && npx vite --port 3002\" \"cd \\\"management workspace\\\" && npx vite --port 3003\" \"cd \\\"marketing workspace\\\" && npx vite --port 3004\" \"cd \\\"technical workspace\\\" && npx vite --port 3005\" \"cd \\\"financial workspace\\\" && npx vite --port 3006\" \"cd \\\"client handling workspace\\\" && npx vite --port 3007\" \"cd \\\"entraiot-ceo-main/entraiot-ceo-main\\\" && npx vite --port 3008\" \"cd \\\"entraiot MD\\\" && npx vite --port 3009\" \"cd \\\"Entraiot developer\\\" && npx vite --port 3010\" \"cd \\\"Entraiot developer 2\\\" && npx vite --port 3011\""
   },
   "dependencies": {
     "acorn": "^8.16.0",

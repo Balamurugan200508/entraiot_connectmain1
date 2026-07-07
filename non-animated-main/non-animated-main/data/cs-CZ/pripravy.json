@@ -1,0 +1,66 @@
+{
+  "id": "pripravy",
+  "number": "01",
+  "title": "Preparations for the founding of the university",
+  "headerImage": "/points/pripravy/pripravy_main.jpg",
+  "components": [
+    {
+      "title": "",
+      "value": "<p>Higher education in Zlín? This was discussed in the city – mainly in the Baťa company – as early as the 1930s. After the war, similar efforts were renewed and finally brought the first results in the late 1950s. However, if we want to talk about the beginnings of Tomas Bata University, we have to move to the 1990s. Only the return of democracy in our country after 1989 allowed the dreams of generations for an independent higher education institution in Zlín to be fulfilled.</p>\n<p>At that time, the dean of the Faculty of Technology in Zlín, which was part of the Brno University of Technology, was Prof. Petr Sáha. 'The faculty was opening new fields of study at that time, new departments were being created, and in 1994 we obtained the authorization to habilitate associate professors and conduct procedures for the appointment of professors,' recalls Prof. Petr Sáha, continuing: 'In my election program for the second term of office as dean of the faculty, I set the goal of establishing a university in Zlín. By electing me to the position, the academic senate also approved the project for the creation of the university.'</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "",
+      "slides": [
+        {
+          "source": "/points/pripravy/1.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The world-famous shoemaker after whom the Zlín university is named, Tomáš Baťa (1876-1932). In the picture with his son, Tomáš Baťa Jr. (1914-2008), later a Canadian businessman and the first chairman of the TBU Board of Governors.",
+          "thumbnail": "/points/pripravy/1__tumbnail.jpg"
+        }
+      ],
+      "type": "CAROUSELBLOCK"
+    },
+    {
+      "title": "Separation from BUT",
+      "value": "<p>The creation of a university naturally represents not only a lot of work, but also a number of necessary administrative and legislative steps. The first of these was the establishment of the second faculty. Thus, in 1995, the Faculty of Management and Economics was created, housed in the former building of the District Committee of the Communist Party on Mostní Street. Assoc. Prof. Alois Glogar, CSc., who managed it as dean in 1995-97, contributed significantly to the creation of the faculty.</p>\n<p>The separation of the Zlín part of BUT into a new institution was approved as a transfer of property, employees, students, accreditations, and all legislation from BUT Brno. Economists, personnel, study, IT, and other departments had to work intensively on the preparation of the creation of TBU.</p>\n<p>Naturally, it was also necessary to resolve the name of the new institution. Initially, names such as Wallachian or Zlín University were considered. Eventually, Tomáš Baťa Jr. gave his consent to name the university after his father.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "Efforts for higher education in Zlín",
+      "value": "<p>Tomáš Baťa already realized the necessity of a quality education when he was building his footwear empire. As historian Zdeněk Pokluda states in the work 'Education and Research in Zlín – from Tomáš Baťa to the University', '... Baťa developed numerous contacts with universities and professional institutions in the 1920s and 1930s on the grounds of the company and the city. Research was starting up...'. And he further writes about how he tried to arrange university lectures for the city even during the First World War: 'In the summer and autumn of 1918, while the war was still raging, a series of university lectures was held in Zlín...'. In 1937, Jan Antonín Baťa then mentioned the prepared company 'business university' in the newspaper. A year later, the head of the company received an honorary doctorate at the Brno technical university.</p>",
+      "type": "TEXTBLOCK"
+    },
+    {
+      "title": "",
+      "slides": [
+        {
+          "source": "XVbIeASjOI4",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "Pzbov7xMY3o",
+          "type": "YOUTUBEBLOCK"
+        },
+        {
+          "source": "/points/pripravy/1.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "The world-famous shoemaker after whom the Zlín university is named, Tomáš Baťa (1876-1932). In the picture with his son, Tomáš Baťa Jr. (1914-2008), later a Canadian businessman and the first chairman of the TBU Board of Governors.",
+          "thumbnail": "/points/pripravy/1__tumbnail.jpg"
+        },
+        {
+          "source": "/points/pripravy/2.jpg",
+          "type": "IMAGEBLOCK",
+          "description": "TBU was not created 'on a green field'. The oldest of its faculties, the Faculty of Technology, has a successful history of many years. Since 1969, it was part of the Brno BUT, and later, along with the Faculty of Management and Economics, became the basis for the creation of the university in Zlín.",
+          "thumbnail": "/points/pripravy/2__tumbnail.jpg"
+        }
+      ],
+      "type": "CAROUSELBLOCK"
+    },
+    {
+      "title": "Other interesting facts",
+      "value": "<p>The period of the German occupation, when even existing Czech universities were closed, naturally did not favor the creation of higher education in Zlín. Nevertheless, according to the memories of Jan Beránek, the company's management began to deal with the idea of 'considering the establishment of university studies for specialization in mechanical technology of footwear production after the end of the war'. Immediately after the war, a proposal for the establishment of the University of Commerce was submitted. However, neither of these efforts succeeded in being realized.</p>\n<p>Actual higher education studies in Zlín were started in <strong>1959</strong>. In that year, the <strong>Pedagogical Institute for the training of primary school teachers</strong> began operating in the city. In the same year, a <strong>design studio</strong> was established in Zlín as a detached workplace of the <strong>Academy of Arts, Architecture and Design in Prague</strong>.</p>\n<p>In <strong>1960</strong>, a detached workplace of the <strong>Slovak University of Technology</strong> was established in the city. The studies were based on the tradition of the local industry – local students were educated in the field of Mechanical Technology of Leather, Rubber, and Plastics Industries. In the case of this workplace, we can already speak of a direct predecessor of today's TBU. Three years later, the workplace was transferred <strong>to the Brno University of Technology</strong>. In <strong>1969</strong>, it was transformed into the <strong>Faculty of Technology</strong>, which thirty years later became the basis of today's <strong>Tomas Bata University</strong>.</p>",
+      "type": "TEXTBLOCK"
+    }
+  ]
+}

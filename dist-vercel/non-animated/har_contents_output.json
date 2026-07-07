@@ -1,0 +1,124 @@
+[
+    {
+        "Request Number": 1,
+        "Method": "POST",
+        "URL": "https://cdp.cloud.unity3d.com/v1/events",
+        "Payload Sent": [
+            {
+                "common": {
+                    "appid": "d8e9ee89-9f3f-4f28-b3ae-7aa69857cbf6",
+                    "userid": "8c07938cdcc8e772f89b87f64b13b159",
+                    "sessionid": 6442918491664069509,
+                    "platform": "WebGL",
+                    "platformid": 17,
+                    "sdk_ver": "u6000.3.11f1",
+                    "runMode": "human-hub",
+                    "sdk_rev": "3000ef702840",
+                    "session_count": 4,
+                    "localprojectid": "99d280ddfec879d41bca2b102b489983",
+                    "build_guid": "56eded10261240cb8d6fe056b256b8d0",
+                    "deviceid": "n/a",
+                    "identity_token": "8c07938cdcc8e772f89b87f64b13b159"
+                }
+            },
+            {
+                "type": "analytics.appRunning.v1",
+                "msg": {
+                    "duration": 5,
+                    "local_time_offset": -19800000,
+                    "ts": 1778943408662,
+                    "t_since_start": 6459000
+                }
+            }
+        ]
+    },
+    {
+        "Request Number": 2,
+        "Method": "POST",
+        "URL": "https://cdp.cloud.unity3d.com/v1/events",
+        "Payload Sent": [
+            {
+                "common": {
+                    "appid": "d8e9ee89-9f3f-4f28-b3ae-7aa69857cbf6",
+                    "userid": "8c07938cdcc8e772f89b87f64b13b159",
+                    "sessionid": 6442918491664069509,
+                    "platform": "WebGL",
+                    "platformid": 17,
+                    "sdk_ver": "u6000.3.11f1",
+                    "runMode": "human-hub",
+                    "sdk_rev": "3000ef702840",
+                    "session_count": 4,
+                    "localprojectid": "99d280ddfec879d41bca2b102b489983",
+                    "build_guid": "56eded10261240cb8d6fe056b256b8d0",
+                    "deviceid": "n/a",
+                    "identity_token": "8c07938cdcc8e772f89b87f64b13b159"
+                }
+            },
+            {
+                "type": "analytics.appResume.v1",
+                "msg": {}
+            }
+        ]
+    },
+    {
+        "Request Number": 3,
+        "Method": "POST",
+        "URL": "https://cdp.cloud.unity3d.com/v1/events",
+        "Payload Sent": [
+            {
+                "common": {
+                    "appid": "d8e9ee89-9f3f-4f28-b3ae-7aa69857cbf6",
+                    "userid": "8c07938cdcc8e772f89b87f64b13b159",
+                    "sessionid": 6442918491664069509,
+                    "platform": "WebGL",
+                    "platformid": 17,
+                    "sdk_ver": "u6000.3.11f1",
+                    "runMode": "human-hub",
+                    "sdk_rev": "3000ef702840",
+                    "session_count": 4,
+                    "localprojectid": "99d280ddfec879d41bca2b102b489983",
+                    "build_guid": "56eded10261240cb8d6fe056b256b8d0",
+                    "deviceid": "n/a",
+                    "identity_token": "8c07938cdcc8e772f89b87f64b13b159"
+                }
+            },
+            {
+                "type": "analytics.appPause.v1",
+                "msg": {}
+            }
+        ]
+    },
+    {
+        "Request Number": 4,
+        "Method": "POST",
+        "URL": "https://cdp.cloud.unity3d.com/v1/events",
+        "Payload Sent": [
+            {
+                "common": {
+                    "appid": "d8e9ee89-9f3f-4f28-b3ae-7aa69857cbf6",
+                    "userid": "8c07938cdcc8e772f89b87f64b13b159",
+                    "sessionid": 6442918491664069509,
+                    "platform": "WebGL",
+                    "platformid": 17,
+                    "sdk_ver": "u6000.3.11f1",
+                    "runMode": "human-hub",
+                    "sdk_rev": "3000ef702840",
+                    "session_count": 4,
+                    "localprojectid": "99d280ddfec879d41bca2b102b489983",
+                    "build_guid": "56eded10261240cb8d6fe056b256b8d0",
+                    "deviceid": "n/a",
+                    "identity_token": "8c07938cdcc8e772f89b87f64b13b159"
+                }
+            },
+            {
+                "type": "analytics.appRunning.v1",
+                "msg": {
+                    "duration": 19,
+                    "local_time_offset": -19800000,
+                    "ts": 1778943431074,
+                    "t_since_start": 28871000
+                }
+            }
+        ]
+    }
+]

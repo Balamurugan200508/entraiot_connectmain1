@@ -23,42 +23,59 @@ function copyDir(src, dest) {
     }
 }
 
-console.log('--- STARTING RESILIENT BUILD ---');
+console.log('--- STARTING UNIFIED CROSS-PLATFORM BUILD ---');
 const distDir = path.join(__dirname, 'dist-vercel');
 
-// Only clean if it's NOT already populated by Git
-if (!fs.existsSync(path.join(distDir, 'portfolio'))) {
-    console.log('dist-vercel/portfolio missing, creating structure...');
-    fs.mkdirSync(path.join(distDir, 'portfolio'), { recursive: true });
-    fs.mkdirSync(path.join(distDir, 'way'), { recursive: true });
-    fs.mkdirSync(path.join(distDir, 'buildings'), { recursive: true });
-} else {
-    console.log('dist-vercel already exists from Git, skipping destructive clean.');
+if (!fs.existsSync(distDir)) {
+    fs.mkdirSync(distDir, { recursive: true });
 }
 
-try {
-    // Attempt build but don't crash if it fails (since we have Git fallback)
-    console.log('Attempting Stage 2 build...');
+const buildTargets = [
+    { name: 'Stage 2 (way)', dir: 'stage2', outDir: 'stage2/out', destName: 'way' },
+    { name: 'Stage 3 (buildings)', dir: 'stage3', outDir: 'stage3/dist', destName: 'buildings' },
+    { name: 'Management Workspace', dir: 'management workspace', outDir: 'management workspace/dist', destName: 'management' },
+    { name: 'Marketing Workspace', dir: 'marketing workspace', outDir: 'marketing workspace/dist', destName: 'marketing' },
+    { name: 'Technical Workspace', dir: 'technical workspace', outDir: 'technical workspace/dist', destName: 'technical' },
+    { name: 'Financial Workspace', dir: 'financial workspace', outDir: 'financial workspace/dist', destName: 'financial' },
+    { name: 'Client Handling Workspace', dir: 'client handling workspace', outDir: 'client handling workspace/dist', destName: 'client-handling' },
+    { name: 'CEO Workspace', dir: 'entraiot-ceo-main/entraiot-ceo-main', outDir: 'entraiot-ceo-main/entraiot-ceo-main/dist', destName: 'entraiot-ceo' },
+    { name: 'MD Workspace', dir: 'entraiot MD', outDir: 'entraiot MD/dist', destName: 'entraiot-md' },
+    { name: 'Developer Workspace', dir: 'Entraiot developer', outDir: 'Entraiot developer/dist', destName: 'entraiot-developer' },
+    { name: 'Developer 2 Workspace', dir: 'Entraiot developer 2', outDir: 'Entraiot developer 2/dist', destName: 'entraiot-developer-2' }
+];
+
+// Copy Stage 1 (portfolio) which is static
+console.log('Copying Stage 1 (portfolio)...');
+copyDir(path.join(__dirname, 'stage1'), path.join(distDir, 'portfolio'));
+
+// Copy non-animated workspace (static)
+console.log('Copying non-animated workspace...');
+copyDir(path.join(__dirname, 'non-animated-main', 'non-animated-main'), path.join(distDir, 'non-animated'));
+
+for (const target of buildTargets) {
+    console.log(`\nBuilding ${target.name}...`);
     try {
-        execSync('cd stage2 && npm install && npm run build', { stdio: 'inherit' });
-        console.log('Copying Stage 2 build output...');
-        const stage2Out = path.join(__dirname, 'stage2', 'out');
-        if (fs.existsSync(stage2Out)) {
-            copyDir(stage2Out, path.join(distDir, 'way'));
+        execSync(`npm install`, { cwd: path.join(__dirname, target.dir), stdio: 'inherit' });
+        execSync(`npm run build`, { cwd: path.join(__dirname, target.dir), stdio: 'inherit' });
+        
+        const outPath = path.join(__dirname, target.outDir);
+        if (fs.existsSync(outPath)) {
+            copyDir(outPath, path.join(distDir, target.destName));
+        } else {
+            console.warn(`[Warning] Build output directory not found for ${target.name}: ${outPath}`);
         }
     } catch (e) {
-        console.warn('Stage 2 build failed, using Git fallback files.');
+        console.error(`[Error] Build failed for ${target.name}:`, e.message);
+        process.exit(1);
     }
-
-    // Ensure animation assets are present
-    console.log('Ensuring animation assets...');
-    const animSrc = path.join(__dirname, 'animation-assets');
-    const animDest = path.join(distDir, 'way', 'sequence');
-    if (!fs.existsSync(path.join(animDest, 'index.json'))) {
-        copyDir(animSrc, animDest);
-    }
-
-    console.log('--- BUILD STEP COMPLETE ---');
-} catch (err) {
-    console.error('Critical Build Error:', err);
 }
+
+// Ensure animation assets are present for Stage 2
+console.log('\nEnsuring animation assets for Stage 2...');
+const animSrc = path.join(__dirname, 'animation-assets');
+const animDest = path.join(distDir, 'way', 'sequence');
+if (fs.existsSync(animSrc)) {
+    copyDir(animSrc, animDest);
+}
+
+console.log('\n--- BUILD SUCCESSFUL ---');
