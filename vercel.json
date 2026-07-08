@@ -7,28 +7,28 @@
   "outputDirectory": "dist-vercel",
   "headers": [
     {
-      "source": "/(.*)\\.wasm\\.br",
+      "source": "/:path*.wasm.br",
       "headers": [
         { "key": "Content-Encoding", "value": "br" },
         { "key": "Content-Type", "value": "application/wasm" }
       ]
     },
     {
-      "source": "/(.*)\\.data\\.br",
+      "source": "/:path*.data.br",
       "headers": [
         { "key": "Content-Encoding", "value": "br" },
         { "key": "Content-Type", "value": "application/octet-stream" }
       ]
     },
     {
-      "source": "/(.*)\\.js\\.br",
+      "source": "/:path*.js.br",
       "headers": [
         { "key": "Content-Encoding", "value": "br" },
         { "key": "Content-Type", "value": "application/javascript" }
       ]
     },
     {
-      "source": "/(.*)\\.wasm",
+      "source": "/:path*.wasm",
       "headers": [
         { "key": "Content-Type", "value": "application/wasm" }
       ]
