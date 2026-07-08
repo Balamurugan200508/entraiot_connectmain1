@@ -35,6 +35,12 @@
     }
   ],
   "rewrites": [
+    { "source": "/unity/(.*)", "destination": "/non-animated/unity/$1" },
+    { "source": "/custom-icons/(.*)", "destination": "/non-animated/custom-icons/$1" },
+    { "source": "/fonts/(.*)", "destination": "/non-animated/fonts/$1" },
+    { "source": "/points/(.*)", "destination": "/non-animated/points/$1" },
+    { "source": "/ribbons/(.*)", "destination": "/non-animated/ribbons/$1" },
+    { "source": "/data/(.*)", "destination": "/non-animated/data/$1" },
     { "source": "/eiffel.glb", "destination": "/buildings/eiffel.glb" },
     { "source": "/pond%20scene.glb", "destination": "/buildings/pond scene.glb" },
     { "source": "/pond scene.glb", "destination": "/buildings/pond scene.glb" },
