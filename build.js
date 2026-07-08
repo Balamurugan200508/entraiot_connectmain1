@@ -121,4 +121,45 @@ if (fs.existsSync(nonAnimatedAssetsSrc)) {
     copyDirFiles(nonAnimatedAssetsSrc, stage2PublicAssets);
 }
 
+// Copy CEO/MD media assets to root of dist-vercel for static serving
+console.log('\nCopying CEO/MD media assets to root of dist-vercel...');
+
+// From CEO
+const ceoMedia = ['CEO_introduction.mp4', 'walk', 'walk2', 'walk3', 'walk4', 'walk5', 'walk6', 'walk7', 'walk8'];
+for (const item of ceoMedia) {
+    const src = path.join(distDir, 'entraiot-ceo', item);
+    const dest = path.join(distDir, item);
+    if (fs.existsSync(src)) {
+        if (fs.statSync(src).isDirectory()) {
+            copyDir(src, dest);
+        } else {
+            fs.copyFileSync(src, dest);
+        }
+    }
+}
+
+// From MD
+const mdMedia = [
+    'Untitled_design.mp4',
+    'Woman_CEO_speaking_to_camera_202606161724.mp4',
+    'Woman_analyzing_daily_report_doc_202606171620.mp4',
+    'Woman_entering_staff_room_discuss_202606171207.mp4',
+    'Woman_in_maroon_blazer_entering_202606171120.mp4',
+    'Woman_monitoring_company_growth_202606171456.mp4',
+    'Woman_standing_walking_down_steps_202606161853.mp4',
+    'slide0_video.mp4',
+    'slide1_video.mp4',
+    'slide2_video.mp4',
+    'slide3_video.mp4',
+    'slide4_video.mp4',
+    'slide5_video.mp4'
+];
+for (const item of mdMedia) {
+    const src = path.join(distDir, 'entraiot-md', item);
+    const dest = path.join(distDir, item);
+    if (fs.existsSync(src)) {
+        fs.copyFileSync(src, dest);
+    }
+}
+
 console.log('\n--- BUILD SUCCESSFUL ---');
