@@ -70,12 +70,55 @@ for (const target of buildTargets) {
     }
 }
 
-// Ensure animation assets are present for Stage 2
-console.log('\nEnsuring animation assets for Stage 2...');
-const animSrc = path.join(__dirname, 'animation-assets');
-const animDest = path.join(distDir, 'way', 'sequence');
-if (fs.existsSync(animSrc)) {
-    copyDir(animSrc, animDest);
+// Merge all workspace assets into the shared portfolio/assets directory for Vercel
+console.log('\nMerging all workspace assets for Vercel...');
+const srcDirs = [
+    'non-animated',
+    'management',
+    'marketing',
+    'technical',
+    'financial',
+    'client-handling',
+    'entraiot-ceo',
+    'entraiot-md',
+    'entraiot-developer',
+    'entraiot-developer-2'
+];
+
+function copyDirFiles(src, dest) {
+    if (!fs.existsSync(src)) return;
+    if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest, { recursive: true });
+    }
+    const files = fs.readdirSync(src);
+    for (const file of files) {
+        const srcPath = path.join(src, file);
+        const destPath = path.join(dest, file);
+        if (fs.statSync(srcPath).isFile()) {
+            fs.copyFileSync(srcPath, destPath);
+        }
+    }
+}
+
+const vercelPortfolioAssets = path.join(distDir, 'portfolio', 'assets');
+const stage1Assets = path.join(__dirname, 'stage1', 'assets');
+const stage2PublicAssets = path.join(__dirname, 'stage2', 'public', 'assets');
+
+for (const dir of srcDirs) {
+    const assetsSrc = path.join(distDir, dir, 'assets');
+    if (fs.existsSync(assetsSrc)) {
+        copyDirFiles(assetsSrc, vercelPortfolioAssets);
+        copyDirFiles(assetsSrc, stage1Assets);
+        copyDirFiles(assetsSrc, stage2PublicAssets);
+    }
+}
+
+// Copy non-animated static assets folder directly
+const nonAnimatedAssetsSrc = path.join(__dirname, 'non-animated-main', 'non-animated-main', 'assets');
+if (fs.existsSync(nonAnimatedAssetsSrc)) {
+    copyDirFiles(nonAnimatedAssetsSrc, vercelPortfolioAssets);
+    copyDirFiles(nonAnimatedAssetsSrc, stage1Assets);
+    copyDirFiles(nonAnimatedAssetsSrc, stage2PublicAssets);
 }
 
 console.log('\n--- BUILD SUCCESSFUL ---');
